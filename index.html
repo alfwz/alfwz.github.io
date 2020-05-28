@@ -203,7 +203,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s ==<span class="keyword">null</span> || s.length() == <span class="number">0</span>) <span class="keyword">return</span> s;</span><br><span class="line">        String res == <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length()][s.length()];</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;s.length(); j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=j;i++&gt;)&#123;</span><br><span class="line">                dp[i][j] = s.charAt(i) == s.charAt</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="中心扩散法"><a href="#中心扩散法" class="headerlink" title="中心扩散法"></a>中心扩散法</h2><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>
       
     </div>
 
@@ -283,7 +284,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>相当于求两个array合并后sort的median，但复杂度要求O(log(min(m,n)))<br><a href="https://www.youtube.com/watch?v=do7ibYtv5nk" target="_blank" rel="noopener">这东北老哥讲听清楚的</a></p>
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>相当于求两个array合并后sort的median，但复杂度要求O(log(min(m,n)))<br><a href="https://www.youtube.com/watch?v=do7ibYtv5nk" target="_blank" rel="noopener">Cspiration讲的这道挺清楚的</a></p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>
       
     </div>
