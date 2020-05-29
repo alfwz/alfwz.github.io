@@ -10,7 +10,7 @@
 <p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
 <li>Map&lt;type, type&gt; map = new HashMap&lt;type, type&gt;()；<br>HaspMap&lt;type, type&gt; map = new HashMap&lt;type, type&gt;()；<br>区别是啥<blockquote>
-<p>HashMap是类，Map是接口，HashMap实现了接口Map，就是说HashMap实现了Map所有的方法。<br>  <img src="https://img-blog.csdn.net/20170220223743576?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDY0ODU1NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>HashMap是类，Map是接口，HashMap实现了接口Map，就是说HashMap实现了Map所有的方法。<br>  <a href="https://blog.csdn.net/u010648555/article/details/56049460" target="_blank" rel="noopener">java集合系列——java集合概述</a></p>
 </blockquote>
 </li>
 <li><a href="https://blog.csdn.net/renfufei/article/details/16905777" target="_blank" rel="noopener">为什么array求length没有括号而String有?</a><blockquote>
@@ -53,6 +53,18 @@
       </tags>
   </entry>
   <entry>
+    <title>❓Leetcode 004</title>
+    <url>/2020/Leetcode-004/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>相当于求两个array合并后sort的median，但复杂度要求O(log(min(m,n)))<br><a href="https://www.youtube.com/watch?v=do7ibYtv5nk" target="_blank" rel="noopener">Cspiration讲的这道挺清楚的</a></p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Binary Search</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Leetcode 003</title>
     <url>/2020/Leetcode-003/</url>
     <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h2><p>一个两层loop遍历出所有string，然后看这string符不符合unique条件,ans当作temp存目前最长的符合条件的string的length。<br>Nested loops, one loop with i from 0 to length-1, the other one with j from i+1 to length.<br>判断unique使用了<a href="https://www.cnblogs.com/LiaHon/p/11257805.html" target="_blank" rel="noopener">hashset</a>，set因为特性是无序、唯一所以判断存不存在的时候用set比较好吧？这个method的判断逻辑就是把每个substring根据index传进来，然后遍历这个substring检查每个character是不是已经在set中，如果有任意一个character已在set中则不算unique return false，不在的话放进set里。</p>
@@ -65,18 +77,6 @@
       <categories>
         <category>Leetcode</category>
       </categories>
-  </entry>
-  <entry>
-    <title>❌Leetcode 004</title>
-    <url>/2020/Leetcode-004/</url>
-    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>相当于求两个array合并后sort的median，但复杂度要求O(log(min(m,n)))<br><a href="https://www.youtube.com/watch?v=do7ibYtv5nk" target="_blank" rel="noopener">Cspiration讲的这道挺清楚的</a></p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Binary Search</tag>
-      </tags>
   </entry>
   <entry>
     <title>Leetcode ZERO</title>
@@ -104,12 +104,34 @@
       </categories>
   </entry>
   <entry>
-    <title>❌Leetcode 005</title>
+    <title>Leetcode 005</title>
     <url>/2020/Leetcode-005/</url>
-    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>aba<br>abba</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s ==<span class="keyword">null</span> || s.length() == <span class="number">0</span>) <span class="keyword">return</span> s;</span><br><span class="line">        String res == <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length()][s.length()];</span><br><span class="line">        <span class="comment">//max标记是否为最长</span></span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;s.length(); j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=j;i++)&#123;</span><br><span class="line">                dp[i][j] = s.charAt(i) == s.charAt(j) &amp;&amp; ((j-<span class="number">1</span>&lt;=<span class="number">2</span>)||dp[i+<span class="number">1</span>][j-<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">if</span> (dp[i][j])&#123;</span><br><span class="line">                    <span class="keyword">if</span>( j-i+<span class="number">1</span> &gt;max)&#123;</span><br><span class="line">                        max = j-i+<span class="number">1</span>;</span><br><span class="line">                        res = s.substring(i, j+<span class="number">1</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="中心扩散法"><a href="#中心扩散法" class="headerlink" title="中心扩散法"></a>中心扩散法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Sting res = <span class="string">""</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s ==<span class="keyword">null</span> || s.length()==<span class="number">0</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0l</span> i&lt;s.length(); i++)&#123;</span><br><span class="line">            helper(s, i ,i);</span><br><span class="line">            helper(s, i, i+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(String s, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(left &gt;= <span class="number">0</span> &amp;&amp; right&lt;s.length() &amp;&amp; s.charAt(left) ==s.charAt(right))&#123;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        String cur = s.substring(left+<span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">if</span>(cur.length() &gt; res.length())&#123;</span><br><span class="line">            res = cur;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.</p>
+<p>Example 1:</p>
+<p>Input: “babad”<br>Output: “bab”<br>Note: “aba” is also a valid answer.<br>Example 2:</p>
+<p>Input: “cbbd”<br>Output: “bb”</p>
+<h1 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="❓动态规划"><a href="#❓动态规划" class="headerlink" title="❓动态规划"></a>❓动态规划</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s ==<span class="keyword">null</span> || s.length() == <span class="number">0</span>) <span class="keyword">return</span> s;</span><br><span class="line">    String res == <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length()][s.length()];</span><br><span class="line">    <span class="comment">//max标记是否为最长</span></span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;s.length(); j++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=j;i++)&#123;</span><br><span class="line">            dp[i][j] = s.charAt(i) == s.charAt(j) &amp;&amp; ((j-<span class="number">1</span>&lt;=<span class="number">2</span>)|| dp[i+<span class="number">1</span>][j-<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span> (dp[i][j])&#123;</span><br><span class="line">                <span class="keyword">if</span>( j-i+<span class="number">1</span> &gt;max)&#123;</span><br><span class="line">                   max = j-i+<span class="number">1</span>;</span><br><span class="line">                    res = s.substring(i, j+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="中心扩散法"><a href="#中心扩散法" class="headerlink" title="中心扩散法"></a>中心扩散法</h2><p>正确版本</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    String res = <span class="string">""</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s ==<span class="keyword">null</span> || s.length()==<span class="number">0</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.length(); i++)&#123;</span><br><span class="line">            getLongest(s, i ,i);</span><br><span class="line">            getLongest(s, i, i+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getLongest</span><span class="params">(String s, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(left &gt;= <span class="number">0</span> &amp;&amp; right&lt;s.length() &amp;&amp; s.charAt(left) ==s.charAt(right))&#123;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        String cur = s.substring(left+<span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">if</span>(cur.length() &gt; res.length())&#123;</span><br><span class="line">            res = cur;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>错误版本</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    String ans=<span class="string">""</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s==<span class="keyword">null</span> || s.length()==<span class="number">0</span> ) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.length(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.length()%<span class="number">2</span>==<span class="number">0</span>)&#123;getLongest(s, i, i+<span class="number">1</span>);&#125;</span><br><span class="line">            <span class="keyword">if</span>(s.length()%<span class="number">2</span>==<span class="number">1</span>)&#123;getLongest(s,i, i);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getLongest</span><span class="params">(String s, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(left&gt;<span class="number">0</span> &amp;&amp; right&lt;s.length())&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(left)==s.charAt(right))&#123;</span><br><span class="line">                right++;</span><br><span class="line">                left--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans= s.substring(left, right+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
+<li>错误版本为啥错的？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+        <tag>DP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Leetcode 010</title>
+    <url>/2020/Leetcode-010/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
       <categories>
         <category>Leetcode</category>
       </categories>
