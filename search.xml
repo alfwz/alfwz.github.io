@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>LC001 Two Sum</title>
-    <url>/2020/Leetcode-001/</url>
-    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example:</p>
-<p>Given nums = [2, 7, 11, 15], target = 9,</p>
-<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
-<li>Map&lt;type, type&gt; map = new HashMap&lt;type, type&gt;()；<br>HaspMap&lt;type, type&gt; map = new HashMap&lt;type, type&gt;()；<br>区别是啥<blockquote>
-<p>HashMap是类，Map是接口，HashMap实现了接口Map，就是说HashMap实现了Map所有的方法。<br>  <a href="https://blog.csdn.net/u010648555/article/details/56049460" target="_blank" rel="noopener">java集合系列——java集合概述</a></p>
-</blockquote>
-</li>
-<li><a href="https://blog.csdn.net/renfufei/article/details/16905777" target="_blank" rel="noopener">为什么array求length没有括号而String有?</a><blockquote>
-<p>array长度固定，length是可以作为一个final属性</p>
-</blockquote>
-</li>
-</ul>
-]]></content>
+    <title>LC017 Letter Combinations of a Phone Number</title>
+    <url>/2020/LC017-Letter-Combinations-of-a-Phone-Number/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
       <categories>
         <category>Leetcode</category>
       </categories>
@@ -39,6 +26,27 @@
       </tags>
   </entry>
   <entry>
+    <title>LC001 Two Sum</title>
+    <url>/2020/Leetcode-001/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example:</p>
+<p>Given nums = [2, 7, 11, 15], target = 9,</p>
+<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
+<li>Map&lt;type, type&gt; map = new HashMap&lt;type, type&gt;()；<br>HaspMap&lt;type, type&gt; map = new HashMap&lt;type, type&gt;()；<br>区别是啥<blockquote>
+<p>HashMap是类，Map是接口，HashMap实现了接口Map，就是说HashMap实现了Map所有的方法。<br>  <a href="https://blog.csdn.net/u010648555/article/details/56049460" target="_blank" rel="noopener">java集合系列——java集合概述</a></p>
+</blockquote>
+</li>
+<li><a href="https://blog.csdn.net/renfufei/article/details/16905777" target="_blank" rel="noopener">为什么array求length没有括号而String有?</a><blockquote>
+<p>array长度固定，length是可以作为一个final属性</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>LC003</title>
     <url>/2020/Leetcode-003/</url>
     <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h2><p>一个两层loop遍历出所有string，然后看这string符不符合unique条件,ans当作temp存目前最长的符合条件的string的length。<br>Nested loops, one loop with i from 0 to length-1, the other one with j from i+1 to length.<br>判断unique使用了<a href="https://www.cnblogs.com/LiaHon/p/11257805.html" target="_blank" rel="noopener">hashset</a>，set因为特性是无序、唯一所以判断存不存在的时候用set比较好吧？这个method的判断逻辑就是把每个substring根据index传进来，然后遍历这个substring检查每个character是不是已经在set中，如果有任意一个character已在set中则不算unique return false，不在的话放进set里。</p>
@@ -56,6 +64,57 @@
       </categories>
   </entry>
   <entry>
+    <title>Leetcode ZERO</title>
+    <url>/2020/Leetcode0/</url>
+    <content><![CDATA[<h1 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h1><blockquote>
+<p>18号考完最后一门到现在也一周了，坦率的讲到今天为止，刷了3道，还是那种现在叫我写不一定bug free的。。</p>
+</blockquote>
+<h2 id="如何刷"><a href="#如何刷" class="headerlink" title="如何刷"></a>如何刷</h2><ul>
+<li>Externally motivated的人还是适合找几个人一起写，而且po在网上。成一件事，只考虑自己不考虑他人的最好的办法就是先把自己推到那个位置，笨将军和聪明士兵同时指挥战斗还是笨将军大概率好些</li>
+<li>看到没思路5分钟直接看答案查资料写笔记，完事自己写一遍，别有负罪感</li>
+<li>先量后质</li>
+<li>别用IDE，面试写白板</li>
+<li>我个人用JAVA刷，python没java熟悉，而且怎么说来着语法糖太多了python，不利于刚开始理解很多结构，而且官方solution都是java的</li>
+<li>先刷top100，再把前两百刷完</li>
+<li>很多人说分类，刚开始我只打算做tag标记类型，<a href="https://zxi.mytechroad.com/blog/leetcode-problem-categories/" target="_blank" rel="noopener">花花酱的题目分类</a></li>
+<li>5/31Updated: 先按照huahua的题目分类，两百道的分类刷，每天3道左右</li>
+</ul>
+<h2 id="刷多少"><a href="#刷多少" class="headerlink" title="刷多少"></a>刷多少</h2><p>从0开始刷，暑假目标要刷到200道的话，每天至少3道吧，也肯定不止刷一遍。</p>
+<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><blockquote>
+<p>github+hexo+next搭建静态博客还是挺好玩的，强迫症也觉得挺好看的，个人不喜欢有的花里胡哨的特效，总之真的可以像微信广告说的0编程基础。</p>
+</blockquote>
+<h2 id="未实现功能"><a href="#未实现功能" class="headerlink" title="未实现功能"></a>未实现功能</h2><p>相册，书籍，电影，自定义page。</p>
+]]></content>
+      <categories>
+        <category>胡说十道</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>First Principle</title>
+    <url>/2020/First-Principle/</url>
+    <content><![CDATA[<p>看了许知远对话许倬云的这期十三邀视频，再看了微信上的文字完整版，形式不是什么著作书籍，但我认为这绝对是用分崩离析形容不为过的现在大师站出来留下的灯塔，站出来告诉现代人的出路在哪。</p>
+<p>许倬云我认为和一般历史学家最大的不同在于他大学本想学数学学理科的，所以他是一个有理科思维的历史学家，对拓扑量子物理什么是有了解的，我个人认为没有纯文科的大师，至少看世界是有缺陷的少一部分的，所以马斯克看马云就像看傻子。</p>
+<p>他说的有的话懂了字面意思其实没有很强的感触，没有思考过那样的困境理解不了。最令我振聋发聩的是关于怎么应对这个时代的回答？</p>
+<blockquote>
+<p>许知远：轴心时代。<br>许倬云：那个时代每个文化圈都冒出人来，冒出一群人来，提出大的问题，多半提出问题不是提出答案，那些问题就始终今天还在我们脑子里边。那一批人问的问题，历代都有人跟着想，我们都在做注脚，可现在对大问题做注脚的人越来越少，因为答案太现成，都像麦当劳一样，思想上的麦当劳，现成答案。随手一抓就一个，短暂吃下去，够饱了，不去想了。所以这些是今天物质生活丰富方便，精神上空虚苍白，甚至没有。人这么做走下去，也就等于人变成活的机器，我们来配合AI（人工智能），不是AI来配合人，没有自己了。</p>
+</blockquote>
+<blockquote>
+<p>许知远：您作为历史学家，怎么看待这一轮技术革命？大数据、AI人工智能……它们会跟历史上的工业革命很相似吗？<br>许倬云：人工智能这个很厉害，这个触及到知识本身的性质，触及到我们掌握知识是不是人人有机会掌握。自从网络革命以后，我们不一定要自己掌握知识资源，就搜索资源就好，但搜索出来是片段的，要掌握则是全貌的。这个世界是正在乱的时候，新的理想没有出现，旧的理想被放在一边。我们没有机会再培养一批所谓知识分子，我们现在知识分子是网络知识分子，是检索机器，不是思考者。</p>
+</blockquote>
+<blockquote>
+<p>许知远：在人类历史上有没有和现在相似的时代？没有方向，没有判断。<br>许倬云：有，第一批氏族时代就是因为大家吃饭也没问题了，农业够发达了，新石器时代的草莽时代已经过去了，吃饭够了，社会秩序基本上也可以了，有个大的社群、大的部落了，若干大的部落构成很大的一个部落国或者一个列国，开始国与国的争，不同想法在斗。<br>于是这个时候孔子也罢，犹太教的先知也罢，佛陀那批人里边也罢，波斯人里的琐罗亚斯德也罢，碰到有些人在不同的念头，不同的想法蹦出来的时候，他在想该怎么走，怎么整合，看到许多零碎的疑问，整合这一套一套。今天的教育不能教育这种人来，今天教育，教育的是凡人，过日子的人，这个教育今天大学的使命不能完成了。但是今天的书刊、信息、搜索工具都很丰富，只要肯用心，一个人可以自己从基本的阅读能力、最起码的思考训练底子上，自己摸出道路来。<br>孔子时代不能做到的事情，董仲舒时代做得到，信息已经丰富到东也有，西也有，董仲舒可以搜集的思想资源，远比孔子时代多，孔子没想到的阴阳五行家，没有想到农家什么，他都出来了。法家都出来了，道家都出来了，道家孔子前也有，而且我觉得那个是已经原始佛教道理，董仲舒也引进来了，只是没警觉大家，这些终于刺激出董仲舒这种人。所以今天的大学教育是令人失望的，尤其美国式大学教育，最大缺陷是它零碎，它是吃自助餐一样的。</p>
+</blockquote>
+<p>对我而言解答了很久以来我为什么不能形成自己对事物有独立的看法而不只是从别人那里搜索来变成自己的半灌水知识，我觉得我有不错的信息鉴别能力但没有原创输出能力，也就是只能做到检索机器加上鉴别和整理功能。</p>
+<p>我想起了马斯克也非常强调了物理里的“第一性原理”，也就是从头算，而不用检索不用类比推理，换种说法把事物拆分到分子再来推导，所以牛顿经典物理后有反常识的相对论理论物理。</p>
+<p>我的一个室友是理论物理博士后，讨论一些比较大众统一观点的话题时就发觉他的观点语言不高深但前后就非常通畅而且非常能马上从反的一面说，所以辩论也是这样一个思考训练过程，他说他每天的研究工作就类似用数学公式尝试推翻所谓真理，许倬云也提到了好像是五四过后迷信科学的问题，他说科学不是真理，科学是种对真理的追求精神。</p>
+<p>我想起了柯文哲说大学最应该上的课是文学、辩论、逻辑这些基本科目，就我所在的全美80多名的本科学校，更像是自助餐式职业教育，虽然有通识课但比例还是很少，但当然许倬云也说了“今天的书刊、信息、搜索工具都很丰富，只要肯用心，一个人可以自己从基本的阅读能力、最起码的思考训练底子上，自己摸出道路来”，但其实就人类的演变而说，文字这种信息传递方式一定一会被遗弃变成考古学，信息传递方式一定是从结绳到文字到图像未来到神经上的感受可以被量化后通过类似神经的方式直接传导信息，所以阅读我觉得不好说，但书的文字的好处是知识浓度够大够精华，但坦率讲每次阅读文字我是痛苦的，我的方式是网上听不同人来讲一本书我自己看不下去。</p>
+<p>所以明天起，吾日三省吾身三问我是谁我从哪里来我到哪里去:-)</p>
+]]></content>
+      <categories>
+        <category>胡说十道</category>
+      </categories>
+  </entry>
+  <entry>
     <title>❓LC004</title>
     <url>/2020/Leetcode-004/</url>
     <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>相当于求两个array合并后sort的median，但复杂度要求O(log(min(m,n)))<br><a href="https://www.youtube.com/watch?v=do7ibYtv5nk" target="_blank" rel="noopener">Cspiration讲的这道挺清楚的</a></p>
@@ -66,6 +125,29 @@
       </categories>
       <tags>
         <tag>Binary Search</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LC002 Add Two Numbers</title>
+    <url>/2020/Leetcode-002/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example:</p>
+<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8<br>Explanation: 342 + 465 = 807.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>高精度加法模拟<br>链表遍历、创建<br>注意长度不一样补零和进位</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">    ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    ListNode tail = dummy;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>, carry=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(l1 !=<span class="keyword">null</span> || l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">        sum = (l1 ==<span class="keyword">null</span> ? <span class="number">0</span>: l1.val) +(l2 ==<span class="keyword">null</span> ? <span class="number">0</span>: l2.val) + carry;</span><br><span class="line">        tail.next=<span class="keyword">new</span> ListNode(sum%<span class="number">10</span>);</span><br><span class="line">        tail = tail.next;</span><br><span class="line">        <span class="keyword">if</span>(l1 != <span class="keyword">null</span>) l1 = l1.next;</span><br><span class="line">        <span class="keyword">if</span>(l2 != <span class="keyword">null</span>) l2 = l2.next;</span><br><span class="line">        carry=sum/<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummy.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
+<li>为什么return dummy.next？</li>
+<li>为什么错误版本是错的？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>List</tag>
       </tags>
   </entry>
   <entry>
@@ -94,29 +176,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LC002 Add Two Numbers</title>
-    <url>/2020/Leetcode-002/</url>
-    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example:</p>
-<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8<br>Explanation: 342 + 465 = 807.</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>高精度加法模拟<br>链表遍历、创建<br>注意长度不一样补零和进位</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">    ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    ListNode tail = dummy;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>, carry=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(l1 !=<span class="keyword">null</span> || l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">        sum = (l1 ==<span class="keyword">null</span> ? <span class="number">0</span>: l1.val) +(l2 ==<span class="keyword">null</span> ? <span class="number">0</span>: l2.val) + carry;</span><br><span class="line">        tail.next=<span class="keyword">new</span> ListNode(sum%<span class="number">10</span>);</span><br><span class="line">        tail = tail.next;</span><br><span class="line">        <span class="keyword">if</span>(l1 != <span class="keyword">null</span>) l1 = l1.next;</span><br><span class="line">        <span class="keyword">if</span>(l2 != <span class="keyword">null</span>) l2 = l2.next;</span><br><span class="line">        carry=sum/<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummy.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
-<li>为什么return dummy.next？</li>
-<li>为什么错误版本是错的？</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>List</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LC010</title>
     <url>/2020/Leetcode-010/</url>
     <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><ul>
@@ -140,57 +199,6 @@
       <tags>
         <tag>DP</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>First Principle</title>
-    <url>/2020/First-Principle/</url>
-    <content><![CDATA[<p>看了许知远对话许倬云的这期十三邀视频，再看了微信上的文字完整版，形式不是什么著作书籍，但我认为这绝对是用分崩离析形容不为过的现在大师站出来留下的灯塔，站出来告诉现代人的出路在哪。</p>
-<p>许倬云我认为和一般历史学家最大的不同在于他大学本想学数学学理科的，所以他是一个有理科思维的历史学家，对拓扑量子物理什么是有了解的，我个人认为没有纯文科的大师，至少看世界是有缺陷的少一部分的，所以马斯克看马云就像看傻子。</p>
-<p>他说的有的话懂了字面意思其实没有很强的感触，没有思考过那样的困境理解不了。最令我振聋发聩的是关于怎么应对这个时代的回答？</p>
-<blockquote>
-<p>许知远：轴心时代。<br>许倬云：那个时代每个文化圈都冒出人来，冒出一群人来，提出大的问题，多半提出问题不是提出答案，那些问题就始终今天还在我们脑子里边。那一批人问的问题，历代都有人跟着想，我们都在做注脚，可现在对大问题做注脚的人越来越少，因为答案太现成，都像麦当劳一样，思想上的麦当劳，现成答案。随手一抓就一个，短暂吃下去，够饱了，不去想了。所以这些是今天物质生活丰富方便，精神上空虚苍白，甚至没有。人这么做走下去，也就等于人变成活的机器，我们来配合AI（人工智能），不是AI来配合人，没有自己了。</p>
-</blockquote>
-<blockquote>
-<p>许知远：您作为历史学家，怎么看待这一轮技术革命？大数据、AI人工智能……它们会跟历史上的工业革命很相似吗？<br>许倬云：人工智能这个很厉害，这个触及到知识本身的性质，触及到我们掌握知识是不是人人有机会掌握。自从网络革命以后，我们不一定要自己掌握知识资源，就搜索资源就好，但搜索出来是片段的，要掌握则是全貌的。这个世界是正在乱的时候，新的理想没有出现，旧的理想被放在一边。我们没有机会再培养一批所谓知识分子，我们现在知识分子是网络知识分子，是检索机器，不是思考者。</p>
-</blockquote>
-<blockquote>
-<p>许知远：在人类历史上有没有和现在相似的时代？没有方向，没有判断。<br>许倬云：有，第一批氏族时代就是因为大家吃饭也没问题了，农业够发达了，新石器时代的草莽时代已经过去了，吃饭够了，社会秩序基本上也可以了，有个大的社群、大的部落了，若干大的部落构成很大的一个部落国或者一个列国，开始国与国的争，不同想法在斗。<br>于是这个时候孔子也罢，犹太教的先知也罢，佛陀那批人里边也罢，波斯人里的琐罗亚斯德也罢，碰到有些人在不同的念头，不同的想法蹦出来的时候，他在想该怎么走，怎么整合，看到许多零碎的疑问，整合这一套一套。今天的教育不能教育这种人来，今天教育，教育的是凡人，过日子的人，这个教育今天大学的使命不能完成了。但是今天的书刊、信息、搜索工具都很丰富，只要肯用心，一个人可以自己从基本的阅读能力、最起码的思考训练底子上，自己摸出道路来。<br>孔子时代不能做到的事情，董仲舒时代做得到，信息已经丰富到东也有，西也有，董仲舒可以搜集的思想资源，远比孔子时代多，孔子没想到的阴阳五行家，没有想到农家什么，他都出来了。法家都出来了，道家都出来了，道家孔子前也有，而且我觉得那个是已经原始佛教道理，董仲舒也引进来了，只是没警觉大家，这些终于刺激出董仲舒这种人。所以今天的大学教育是令人失望的，尤其美国式大学教育，最大缺陷是它零碎，它是吃自助餐一样的。</p>
-</blockquote>
-<p>对我而言解答了很久以来我为什么不能形成自己对事物有独立的看法而不只是从别人那里搜索来变成自己的半灌水知识，我觉得我有不错的信息鉴别能力但没有原创输出能力，也就是只能做到检索机器加上鉴别和整理功能。</p>
-<p>我想起了马斯克也非常强调了物理里的“第一性原理”，也就是从头算，而不用检索不用类比推理，换种说法把事物拆分到分子再来推导，所以牛顿经典物理后有反常识的相对论理论物理。</p>
-<p>我的一个室友是理论物理博士后，讨论一些比较大众统一观点的话题时就发觉他的观点语言不高深但前后就非常通畅而且非常能马上从反的一面说，所以辩论也是这样一个思考训练过程，他说他每天的研究工作就类似用数学公式尝试推翻所谓真理，许倬云也提到了好像是五四过后迷信科学的问题，他说科学不是真理，科学是种对真理的追求精神。</p>
-<p>我想起了柯文哲说大学最应该上的课是文学、辩论、逻辑这些基本科目，就我所在的全美80多名的本科学校，更像是自助餐式职业教育，虽然有通识课但比例还是很少，但当然许倬云也说了“今天的书刊、信息、搜索工具都很丰富，只要肯用心，一个人可以自己从基本的阅读能力、最起码的思考训练底子上，自己摸出道路来”，但其实就人类的演变而说，文字这种信息传递方式一定一会被遗弃变成考古学，信息传递方式一定是从结绳到文字到图像未来到神经上的感受可以被量化后通过类似神经的方式直接传导信息，所以阅读我觉得不好说，但书的文字的好处是知识浓度够大够精华，但坦率讲每次阅读文字我是痛苦的，我的方式是网上听不同人来讲一本书我自己看不下去。</p>
-<p>所以明天起，吾日三省吾身三问我是谁我从哪里来我到哪里去:-)</p>
-]]></content>
-      <categories>
-        <category>胡说十道</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Leetcode ZERO</title>
-    <url>/2020/Leetcode0/</url>
-    <content><![CDATA[<h1 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h1><blockquote>
-<p>18号考完最后一门到现在也一周了，坦率的讲到今天为止，刷了3道，还是那种现在叫我写不一定bug free的。。</p>
-</blockquote>
-<h2 id="如何刷"><a href="#如何刷" class="headerlink" title="如何刷"></a>如何刷</h2><ul>
-<li>Externally motivated的人还是适合找几个人一起写，而且po在网上。成一件事，只考虑自己不考虑他人的最好的办法就是先把自己推到那个位置，笨将军和聪明士兵同时指挥战斗还是笨将军大概率好些</li>
-<li>看到没思路5分钟直接看答案查资料写笔记，完事自己写一遍，别有负罪感</li>
-<li>先量后质</li>
-<li>别用IDE，面试写白板</li>
-<li>我个人用JAVA刷，python没java熟悉，而且怎么说来着语法糖太多了python，不利于刚开始理解很多结构，而且官方solution都是java的</li>
-<li>先刷top100，再把前两百刷完</li>
-<li>很多人说分类，刚开始我只打算做tag标记类型，<a href="https://zxi.mytechroad.com/blog/leetcode-problem-categories/" target="_blank" rel="noopener">花花酱的题目分类</a></li>
-<li>5/31Update: 先按照huahua的题目分类，两百道的分类刷，每天3道左右</li>
-</ul>
-<h2 id="刷多少"><a href="#刷多少" class="headerlink" title="刷多少"></a>刷多少</h2><p>从0开始刷，暑假目标要刷到200道的话，每天至少3道吧，也肯定不止刷一遍。</p>
-<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><blockquote>
-<p>github+hexo+next搭建静态博客还是挺好玩的，强迫症也觉得挺好看的，个人不喜欢有的花里胡哨的特效，总之真的可以像微信广告说的0编程基础。</p>
-</blockquote>
-<h2 id="未实现功能"><a href="#未实现功能" class="headerlink" title="未实现功能"></a>未实现功能</h2><p>相册，书籍，电影，自定义page。</p>
-]]></content>
-      <categories>
-        <category>胡说十道</category>
-      </categories>
   </entry>
   <entry>
     <title>LC072</title>
