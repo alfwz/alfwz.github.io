@@ -19,13 +19,47 @@
       </tags>
   </entry>
   <entry>
+    <title>LC019 Remove Nth Node From End of List</title>
+    <url>/2020/LC019-Remove-Nth-Node-From-End-of-List/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><ul>
+<li>Two Pass<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">      ListNode dummy =<span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">      dummy.next=head;</span><br><span class="line">      ListNode first=head;</span><br><span class="line">      length= getLength(first, length);</span><br><span class="line">      length = length - n;</span><br><span class="line">      first=dummy;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++)&#123;</span><br><span class="line">          first=first.next;</span><br><span class="line">      &#125;</span><br><span class="line">      first.next= first.next.next;</span><br><span class="line">      <span class="keyword">return</span> dummy.next;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//❓错误版本</span></span><br><span class="line">  <span class="comment">// public ListNode removeNthFromEnd(ListNode head, int n) &#123;</span></span><br><span class="line">  <span class="comment">//     ListNode first = head;</span></span><br><span class="line">  <span class="comment">//     length=getLength(first, length);</span></span><br><span class="line">  <span class="comment">//     length=length-n;</span></span><br><span class="line">  <span class="comment">//     for(int i=0; i&lt;length; i++)&#123;</span></span><br><span class="line">  <span class="comment">//         first=first.next;</span></span><br><span class="line">  <span class="comment">//     &#125;</span></span><br><span class="line">  <span class="comment">//     first.next=first.next.next;</span></span><br><span class="line">  <span class="comment">//     return head;</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">getLength</span><span class="params">(ListNode first, <span class="keyword">int</span> length)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(first==<span class="keyword">null</span>)&#123;</span><br><span class="line">          <span class="keyword">return</span> length;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          length++;</span><br><span class="line">          <span class="keyword">return</span> getLength(first.next, length);</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>One Pass</li>
+</ul>
+<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>List</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>LC017 Letter Combinations of a Phone Number</title>
+    <url>/2020/LC017-Letter-Combinations-of-a-Phone-Number/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><ul>
+<li>Backtrack<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">     Map&lt;String, String&gt; phone = <span class="keyword">new</span> HashMap()&#123;&#123;</span><br><span class="line">            put(<span class="string">"2"</span>, <span class="string">"abc"</span>);</span><br><span class="line">            put(<span class="string">"3"</span>, <span class="string">"def"</span>);</span><br><span class="line">            put(<span class="string">"4"</span>, <span class="string">"ghi"</span>);</span><br><span class="line">            put(<span class="string">"5"</span>, <span class="string">"jkl"</span>);</span><br><span class="line">            put(<span class="string">"6"</span>, <span class="string">"mno"</span>);</span><br><span class="line">            put(<span class="string">"7"</span>, <span class="string">"pqrs"</span>);</span><br><span class="line">            put(<span class="string">"8"</span>, <span class="string">"tuv"</span>);</span><br><span class="line">            put(<span class="string">"9"</span>, <span class="string">"wxyz"</span>);</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">    List&lt;String&gt; output = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">    <span class="comment">//对应的是每个数字</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(String combination, String next_digits)</span></span>&#123;</span><br><span class="line">        <span class="comment">//stop case：如果没有数字了结束</span></span><br><span class="line">        <span class="keyword">if</span>(next_digits.length()==<span class="number">0</span>)&#123;</span><br><span class="line">            output.add(combination);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//裁切第一个数字</span></span><br><span class="line">            String digit = next_digits.substring(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//获得数字对应的字母串</span></span><br><span class="line">            String letters = phone.get(digit);</span><br><span class="line">            <span class="comment">//对应的每个字母</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;letters.length(); i++)&#123;</span><br><span class="line">                <span class="comment">//从0开始取每个letter substring左闭右开</span></span><br><span class="line">                String letter = letters.substring(i,i+<span class="number">1</span>);</span><br><span class="line">                backtrack(combination +letter, next_digits.substring(<span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">letterCombinations</span><span class="params">(String digits)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(digits.length() != <span class="number">0</span>)&#123;</span><br><span class="line">                backtrack(<span class="string">""</span>,digits);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> output;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>BFS/DFS</category>
+      </categories>
+      <tags>
+        <tag>DFS</tag>
+        <tag>BFS</tag>
+        <tag>Recursion</tag>
+        <tag>Backtrack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LC021 Merge Two Sorted Lists</title>
     <url>/2020/LC021-Merge-Two-Sorted-Lists/</url>
     <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>Iteration</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//❓都为负数咋办？</span></span><br><span class="line">        ListNode dummy=<span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        ListNode pointer=dummy;</span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> &amp;&amp; l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//每次pointer指针移动后 l指针也要移动一次</span></span><br><span class="line">            <span class="keyword">if</span>(l1.val&lt;=l2.val)&#123;</span><br><span class="line">                pointer.next=l1;</span><br><span class="line">                <span class="comment">//l1指针移到list1下个node</span></span><br><span class="line">                l1=l1.next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                pointer.next=l2;</span><br><span class="line">                l2=l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            pointer=pointer.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//pointer.next = l1 ==null ? l2 : l1;</span></span><br><span class="line">        <span class="comment">//哪个l指针指着空的 说明另个list剩一个node pointer指过去</span></span><br><span class="line">        <span class="keyword">if</span>(l1==<span class="keyword">null</span>)&#123;</span><br><span class="line">            pointer.next=l2;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            pointer.next=l1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Recursion</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//问题拆成</span></span><br><span class="line">    <span class="comment">//list1头更小时：list1[0]+merge(list1[1:],list2)</span></span><br><span class="line">    <span class="comment">//list2[0]+merge(list1,list2[1:])</span></span><br><span class="line">    <span class="comment">//❓return的东西</span></span><br><span class="line">    <span class="keyword">if</span>(l1 == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(l2 ==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(l1.val&lt;l2.val)&#123;</span><br><span class="line">        l1.next=mergeTwoLists(l1.next, l2);</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        l2.next=mergeTwoLists(l1, l2.next);</span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//问题拆成</span></span><br><span class="line">    <span class="comment">//list1头更小时：list1[0]+merge(list1[1:],list2)</span></span><br><span class="line">    <span class="comment">//list2[0]+merge(list1,list2[1:])</span></span><br><span class="line">    <span class="comment">//return的东西 l1 l2指针一直没变</span></span><br><span class="line">    <span class="keyword">if</span>(l1 == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(l2 ==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(l1.val&lt;l2.val)&#123;</span><br><span class="line">        l1.next=mergeTwoLists(l1.next, l2);</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        l2.next=mergeTwoLists(l1, l2.next);</span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
       <categories>
@@ -33,8 +67,24 @@
         <category>List</category>
       </categories>
       <tags>
-        <tag>List</tag>
         <tag>Recursion</tag>
+        <tag>List</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LC022 Generate Parentheses</title>
+    <url>/2020/LC022-Generate-Parentheses/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>回溯讲解：<a href="https://zhuanlan.zhihu.com/p/93530380" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/93530380</a><br>回溯三点： 路径 选择条件 结束条件</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">result = []</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtrack</span><span class="params">(路径, 选择列表)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> 满足结束条件:</span><br><span class="line">        result.add(路径)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> 选择 <span class="keyword">in</span> 选择列表:</span><br><span class="line">        做选择</span><br><span class="line">        backtrack(路径, 选择列表)</span><br><span class="line">        撤销选择</span><br></pre></td></tr></table></figure>
+<p>此题python解题报告：<a href="https://zhuanlan.zhihu.com/p/125801637" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/125801637</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">//回溯</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; output_arr = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        backtrack(output_arr, <span class="string">""</span>, <span class="number">0</span>, <span class="number">0</span>, n);</span><br><span class="line">        <span class="keyword">return</span> output_arr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//最大长度为2n</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;String&gt; output_arr, String current_string, <span class="keyword">int</span> open, <span class="keyword">int</span> close, <span class="keyword">int</span> max)</span></span>&#123;</span><br><span class="line">        <span class="comment">//结束条件：当前string长度为2n时 currentString放进output</span></span><br><span class="line">        <span class="keyword">if</span>(current_string.length()==<span class="number">2</span>*max) &#123;</span><br><span class="line">            output_arr.add(current_string);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">        <span class="comment">//左括号小于n都行 </span></span><br><span class="line">        <span class="keyword">if</span>(open &lt;max) backtrack(output_arr, current_string+<span class="string">"("</span>, open+<span class="number">1</span>, close, max);</span><br><span class="line">        <span class="comment">//右括号小于左括号数量都行</span></span><br><span class="line">        <span class="keyword">if</span>(close&lt;open) backtrack(output_arr, current_string+<span class="string">")"</span>, open, close+<span class="number">1</span>, max);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Backtrack</category>
+      </categories>
+      <tags>
+        <tag>Backtrack</tag>
       </tags>
   </entry>
   <entry>
@@ -76,27 +126,6 @@
       </categories>
   </entry>
   <entry>
-    <title>LC017 Letter Combinations of a Phone Number</title>
-    <url>/2020/LC017-Letter-Combinations-of-a-Phone-Number/</url>
-    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><ul>
-<li>Backtrack<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">     Map&lt;String, String&gt; phone = <span class="keyword">new</span> HashMap()&#123;&#123;</span><br><span class="line">            put(<span class="string">"2"</span>, <span class="string">"abc"</span>);</span><br><span class="line">            put(<span class="string">"3"</span>, <span class="string">"def"</span>);</span><br><span class="line">            put(<span class="string">"4"</span>, <span class="string">"ghi"</span>);</span><br><span class="line">            put(<span class="string">"5"</span>, <span class="string">"jkl"</span>);</span><br><span class="line">            put(<span class="string">"6"</span>, <span class="string">"mno"</span>);</span><br><span class="line">            put(<span class="string">"7"</span>, <span class="string">"pqrs"</span>);</span><br><span class="line">            put(<span class="string">"8"</span>, <span class="string">"tuv"</span>);</span><br><span class="line">            put(<span class="string">"9"</span>, <span class="string">"wxyz"</span>);</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">    List&lt;String&gt; output = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">    <span class="comment">//对应的是每个数字</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(String combination, String next_digits)</span></span>&#123;</span><br><span class="line">        <span class="comment">//stop case：如果没有数字了结束</span></span><br><span class="line">        <span class="keyword">if</span>(next_digits.length()==<span class="number">0</span>)&#123;</span><br><span class="line">            output.add(combination);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//裁切第一个数字</span></span><br><span class="line">            String digit = next_digits.substring(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//获得数字对应的字母串</span></span><br><span class="line">            String letters = phone.get(digit);</span><br><span class="line">            <span class="comment">//对应的每个字母</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;letters.length(); i++)&#123;</span><br><span class="line">                <span class="comment">//从0开始取每个letter substring左闭右开</span></span><br><span class="line">                String letter = letters.substring(i,i+<span class="number">1</span>);</span><br><span class="line">                backtrack(combination +letter, next_digits.substring(<span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">letterCombinations</span><span class="params">(String digits)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(digits.length() != <span class="number">0</span>)&#123;</span><br><span class="line">                backtrack(<span class="string">""</span>,digits);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> output;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>BFS/DFS</category>
-      </categories>
-      <tags>
-        <tag>Recursion</tag>
-        <tag>DFS</tag>
-        <tag>BFS</tag>
-        <tag>Backtrack</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LC001 Two Sum</title>
     <url>/2020/Leetcode-001/</url>
     <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example:</p>
@@ -116,6 +145,40 @@
       <categories>
         <category>Leetcode</category>
       </categories>
+  </entry>
+  <entry>
+    <title>LC002 Add Two Numbers</title>
+    <url>/2020/Leetcode-002/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example:</p>
+<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8<br>Explanation: 342 + 465 = 807.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>高精度加法模拟<br>链表遍历、创建<br>注意长度不一样补零和进位</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">    ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    ListNode tail = dummy;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>, carry=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(l1 !=<span class="keyword">null</span> || l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">        sum = (l1 ==<span class="keyword">null</span> ? <span class="number">0</span>: l1.val) +(l2 ==<span class="keyword">null</span> ? <span class="number">0</span>: l2.val) + carry;</span><br><span class="line">        tail.next=<span class="keyword">new</span> ListNode(sum%<span class="number">10</span>);</span><br><span class="line">        tail = tail.next;</span><br><span class="line">        <span class="keyword">if</span>(l1 != <span class="keyword">null</span>) l1 = l1.next;</span><br><span class="line">        <span class="keyword">if</span>(l2 != <span class="keyword">null</span>) l2 = l2.next;</span><br><span class="line">        carry=sum/<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummy.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
+<li>为什么return dummy.next？</li>
+<li>为什么错误版本是错的？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>List</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>❓LC004</title>
+    <url>/2020/Leetcode-004/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>相当于求两个array合并后sort的median，但复杂度要求O(log(min(m,n)))<br><a href="https://www.youtube.com/watch?v=do7ibYtv5nk" target="_blank" rel="noopener">Cspiration讲的这道挺清楚的</a></p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Binary Search</category>
+      </categories>
+      <tags>
+        <tag>Binary Search</tag>
+      </tags>
   </entry>
   <entry>
     <title>First Principle</title>
@@ -160,40 +223,6 @@
       </categories>
   </entry>
   <entry>
-    <title>❓LC004</title>
-    <url>/2020/Leetcode-004/</url>
-    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>相当于求两个array合并后sort的median，但复杂度要求O(log(min(m,n)))<br><a href="https://www.youtube.com/watch?v=do7ibYtv5nk" target="_blank" rel="noopener">Cspiration讲的这道挺清楚的</a></p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>Binary Search</category>
-      </categories>
-      <tags>
-        <tag>Binary Search</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC002 Add Two Numbers</title>
-    <url>/2020/Leetcode-002/</url>
-    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example:</p>
-<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8<br>Explanation: 342 + 465 = 807.</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>高精度加法模拟<br>链表遍历、创建<br>注意长度不一样补零和进位</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">    ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    ListNode tail = dummy;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>, carry=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(l1 !=<span class="keyword">null</span> || l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">        sum = (l1 ==<span class="keyword">null</span> ? <span class="number">0</span>: l1.val) +(l2 ==<span class="keyword">null</span> ? <span class="number">0</span>: l2.val) + carry;</span><br><span class="line">        tail.next=<span class="keyword">new</span> ListNode(sum%<span class="number">10</span>);</span><br><span class="line">        tail = tail.next;</span><br><span class="line">        <span class="keyword">if</span>(l1 != <span class="keyword">null</span>) l1 = l1.next;</span><br><span class="line">        <span class="keyword">if</span>(l2 != <span class="keyword">null</span>) l2 = l2.next;</span><br><span class="line">        carry=sum/<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummy.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
-<li>为什么return dummy.next？</li>
-<li>为什么错误版本是错的？</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>List</category>
-      </categories>
-  </entry>
-  <entry>
     <title>LC005</title>
     <url>/2020/Leetcode-005/</url>
     <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.</p>
@@ -218,46 +247,6 @@
         <tag>String</tag>
         <tag>DP</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Leetcode ZERO</title>
-    <url>/2020/Leetcode0/</url>
-    <content><![CDATA[<h1 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h1><blockquote>
-<p>18号考完最后一门到现在也一周了，坦率的讲到今天为止，刷了3道，还是那种现在叫我写不一定bug free的。。</p>
-</blockquote>
-<h2 id="如何刷"><a href="#如何刷" class="headerlink" title="如何刷"></a>如何刷</h2><ul>
-<li>Externally motivated的人还是适合找几个人一起写，而且po在网上。成一件事，只考虑自己不考虑他人的最好的办法就是先把自己推到那个位置，笨将军和聪明士兵同时指挥战斗还是笨将军大概率好些</li>
-<li>看到没思路5分钟直接看答案查资料写笔记，完事自己写一遍，别有负罪感</li>
-<li>先量后质</li>
-<li>别用IDE，面试写白板</li>
-<li>我个人用JAVA刷，python没java熟悉，而且怎么说来着语法糖太多了python，不利于刚开始理解很多结构，而且官方solution都是java的</li>
-<li>先刷top100，再把前两百刷完</li>
-<li>很多人说分类，刚开始我只打算做tag标记类型，<a href="https://zxi.mytechroad.com/blog/leetcode-problem-categories/" target="_blank" rel="noopener">花花酱的题目分类</a></li>
-<li>5/31Updated: 先按照huahua的题目分类，两百道的分类刷，每天3道左右</li>
-</ul>
-<h2 id="刷多少"><a href="#刷多少" class="headerlink" title="刷多少"></a>刷多少</h2><p>从0开始刷，暑假目标要刷到200道的话，每天至少3道吧，也肯定不止刷一遍。</p>
-<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><blockquote>
-<p>github+hexo+next搭建静态博客还是挺好玩的，强迫症也觉得挺好看的，个人不喜欢有的花里胡哨的特效，总之真的可以像微信广告说的0编程基础。</p>
-</blockquote>
-<h2 id="未实现功能"><a href="#未实现功能" class="headerlink" title="未实现功能"></a>未实现功能</h2><p>相册，书籍，电影，自定义page。</p>
-]]></content>
-      <categories>
-        <category>胡说十道</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>LC019 Remove Nth Node From End of List</title>
-    <url>/2020/LC019-Remove-Nth-Node-From-End-of-List/</url>
-    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><ul>
-<li>Two Pass<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">      ListNode dummy =<span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">      dummy.next=head;</span><br><span class="line">      ListNode first=head;</span><br><span class="line">      length= getLength(first, length);</span><br><span class="line">      length = length - n;</span><br><span class="line">      first=dummy;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++)&#123;</span><br><span class="line">          first=first.next;</span><br><span class="line">      &#125;</span><br><span class="line">      first.next= first.next.next;</span><br><span class="line">      <span class="keyword">return</span> dummy.next;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//❓错误版本</span></span><br><span class="line">  <span class="comment">// public ListNode removeNthFromEnd(ListNode head, int n) &#123;</span></span><br><span class="line">  <span class="comment">//     ListNode first = head;</span></span><br><span class="line">  <span class="comment">//     length=getLength(first, length);</span></span><br><span class="line">  <span class="comment">//     length=length-n;</span></span><br><span class="line">  <span class="comment">//     for(int i=0; i&lt;length; i++)&#123;</span></span><br><span class="line">  <span class="comment">//         first=first.next;</span></span><br><span class="line">  <span class="comment">//     &#125;</span></span><br><span class="line">  <span class="comment">//     first.next=first.next.next;</span></span><br><span class="line">  <span class="comment">//     return head;</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">getLength</span><span class="params">(ListNode first, <span class="keyword">int</span> length)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(first==<span class="keyword">null</span>)&#123;</span><br><span class="line">          <span class="keyword">return</span> length;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          length++;</span><br><span class="line">          <span class="keyword">return</span> getLength(first.next, length);</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>One Pass</li>
-</ul>
-<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><p>为什要要return dummy.next</p>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>List</category>
-      </categories>
   </entry>
   <entry>
     <title>LC010</title>
@@ -307,5 +296,31 @@
       <tags>
         <tag>DP</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Leetcode ZERO</title>
+    <url>/2020/Leetcode0/</url>
+    <content><![CDATA[<h1 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h1><blockquote>
+<p>18号考完最后一门到现在也一周了，坦率的讲到今天为止，刷了3道，还是那种现在叫我写不一定bug free的。。</p>
+</blockquote>
+<h2 id="如何刷"><a href="#如何刷" class="headerlink" title="如何刷"></a>如何刷</h2><ul>
+<li>Externally motivated的人还是适合找几个人一起写，而且po在网上。成一件事，只考虑自己不考虑他人的最好的办法就是先把自己推到那个位置，笨将军和聪明士兵同时指挥战斗还是笨将军大概率好些</li>
+<li>看到没思路5分钟直接看答案查资料写笔记，完事自己写一遍，别有负罪感</li>
+<li>先量后质</li>
+<li>别用IDE，面试写白板</li>
+<li>我个人用JAVA刷，python没java熟悉，而且怎么说来着语法糖太多了python，不利于刚开始理解很多结构，而且官方solution都是java的</li>
+<li>先刷top100，再把前两百刷完</li>
+<li>很多人说分类，刚开始我只打算做tag标记类型，<a href="https://zxi.mytechroad.com/blog/leetcode-problem-categories/" target="_blank" rel="noopener">花花酱的题目分类</a></li>
+<li>5/31Updated: 先按照huahua的题目分类，两百道的分类刷，每天3道左右</li>
+</ul>
+<h2 id="刷多少"><a href="#刷多少" class="headerlink" title="刷多少"></a>刷多少</h2><p>从0开始刷，暑假目标要刷到200道的话，每天至少3道吧，也肯定不止刷一遍。</p>
+<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><blockquote>
+<p>github+hexo+next搭建静态博客还是挺好玩的，强迫症也觉得挺好看的，个人不喜欢有的花里胡哨的特效，总之真的可以像微信广告说的0编程基础。</p>
+</blockquote>
+<h2 id="未实现功能"><a href="#未实现功能" class="headerlink" title="未实现功能"></a>未实现功能</h2><p>相册，书籍，电影，自定义page。</p>
+]]></content>
+      <categories>
+        <category>胡说十道</category>
+      </categories>
   </entry>
 </search>
