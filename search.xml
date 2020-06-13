@@ -349,4 +349,25 @@
         <category>Binary Search</category>
       </categories>
   </entry>
+  <entry>
+    <title>LC046  Permutations</title>
+    <url>/2020/LC046-Permutations/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>LC039 Combination Sum</title>
+    <url>/2020/LC039-Combination-Sum/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p><a href="https://www.youtube.com/watch?v=irFtGMLbf-s" target="_blank" rel="noopener">https://www.youtube.com/watch?v=irFtGMLbf-s</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> target) &#123;</span><br><span class="line">         List&lt;List&lt;Integer&gt;&gt; results = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(candidates ==<span class="keyword">null</span> || candidates.length==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> results;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        Arrays.sort(candidates);</span><br><span class="line">        </span><br><span class="line">        List&lt;Integer&gt; combination =<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        toFindCombinationsToTarget(results, combination, candidates, target, <span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> results;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">toFindCombinationsToTarget</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; results, List&lt;Integer&gt; combination, <span class="keyword">int</span>[] candidates, <span class="keyword">int</span> target, <span class="keyword">int</span> startIndex)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(target ==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="comment">//? 18:00</span></span><br><span class="line">            results.add(<span class="keyword">new</span> ArrayList&lt;&gt;(combination));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=startIndex; i&lt;candidates.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(candidates[i]&gt;target)&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            combination.add(candidates[i]);</span><br><span class="line">            toFindCombinationsToTarget(results, combination, candidates, target - candidates[i], i);</span><br><span class="line">            combination.remove(combination.size() -<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>BFS/DFS</category>
+      </categories>
+  </entry>
 </search>
