@@ -516,6 +516,7 @@
 <h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
       <categories>
         <category>Leetcode</category>
+        <category>DP</category>
       </categories>
   </entry>
   <entry>
@@ -529,6 +530,14 @@
       <categories>
         <category>Leetcode</category>
         <category>DP</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>LC075 Sort Colors</title>
+    <url>/2020/LC075-Sort-Colors/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
+      <categories>
+        <category>Leetcode</category>
       </categories>
   </entry>
 </search>
