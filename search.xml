@@ -799,7 +799,7 @@
       </categories>
   </entry>
   <entry>
-    <title>❓LC518 Coin Change 2</title>
+    <title>LC518 Coin Change 2</title>
     <url>/2020/LC518-Coin-Change-2/</url>
     <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example 1:</p>
 <p>Input: amount = 5, coins = [1, 2, 5]<br>Output: 4<br>Explanation: there are four ways to make up the amount:<br>5=5<br>5=2+2+1<br>5=2+1+1+1<br>5=1+1+1+1+1<br>Example 2:</p>
