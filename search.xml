@@ -324,21 +324,22 @@
 <p>18号考完最后一门到现在也一周了，坦率的讲到今天为止，刷了3道，还是那种现在叫我写不一定bug free的。。</p>
 </blockquote>
 <h2 id="如何刷"><a href="#如何刷" class="headerlink" title="如何刷"></a>如何刷</h2><ul>
-<li>Externally motivated的人还是适合找几个人一起写，而且po在网上。成一件事，只考虑自己不考虑他人的最好的办法就是先把自己推到那个位置，笨将军和聪明士兵同时指挥战斗还是笨将军大概率好些</li>
+<li>Externally motivated的人还是适合找几个人一起写，而且po在网上，类似的以教代学</li>
 <li>看到没思路5分钟直接看答案查资料写笔记，完事自己写一遍，别有负罪感</li>
 <li>先量后质</li>
 <li>别用IDE，面试写白板</li>
-<li>我个人用JAVA刷，python没java熟悉，而且怎么说来着语法糖太多了python，不利于刚开始理解很多结构，而且官方solution都是java的</li>
+<li>我个人用JAVA刷，python没java熟悉，而且怎么说来着语法糖太多了python，不利于刚开始理解很多结构，而且用的最多的是java</li>
 <li>先刷top100，再把前两百刷完</li>
 <li>很多人说分类，刚开始我只打算做tag标记类型，<a href="https://zxi.mytechroad.com/blog/leetcode-problem-categories/" target="_blank" rel="noopener">花花酱的题目分类</a></li>
-<li>5/31Updated: 先按照huahua的题目分类，两百道的分类刷，每天3道左右</li>
-<li>6/9Updated: 才发现top100也可以选tag，hard想太久了，一天5道medium/easy</li>
+<li>5/31Update: 先按照huahua的题目分类，两百道的分类刷，每天3道左右</li>
+<li>6/9Update: 才发现top100也可以选tag，hard想太久了，一天5道medium/easy</li>
+<li>7/2Update: 先刷前200树类 注意解构一个题目 注意框架</li>
 </ul>
 <h2 id="刷多少"><a href="#刷多少" class="headerlink" title="刷多少"></a>刷多少</h2><p>从0开始刷，暑假目标要刷到200道的话，每天至少3道吧，也肯定不止刷一遍。</p>
 <h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><blockquote>
 <p>github+hexo+next搭建静态博客还是挺好玩的，强迫症也觉得挺好看的，个人不喜欢有的花里胡哨的特效，总之真的可以像微信广告说的0编程基础。</p>
 </blockquote>
-<h2 id="未实现功能"><a href="#未实现功能" class="headerlink" title="未实现功能"></a>未实现功能</h2><p>相册，书籍，电影，自定义page。</p>
+<h2 id="未实现功能"><a href="#未实现功能" class="headerlink" title="未实现功能"></a>未实现功能</h2><p>相册，书籍，电影，自定义page如project(关键得有…</p>
 ]]></content>
       <categories>
         <category>胡说十道</category>
@@ -813,6 +814,16 @@
       <categories>
         <category>Leetcode</category>
         <category>DP</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>LC095 Unique Binary Search Trees 2</title>
+    <url>/2020/LC095-Unique-Binary-Search-Trees-2/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Given an integer n, generate all structurally unique BST<span class="string">'s (binary search trees) that store values 1 ... n.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Input: 3</span></span><br><span class="line"><span class="string">Output:</span></span><br><span class="line"><span class="string">[</span></span><br><span class="line"><span class="string">  [1,null,3,2],</span></span><br><span class="line"><span class="string">  [3,2,null,1],</span></span><br><span class="line"><span class="string">  [3,1,null,null,2],</span></span><br><span class="line"><span class="string">  [2,1,3],</span></span><br><span class="line"><span class="string">  [1,null,2,null,3]</span></span><br><span class="line"><span class="string">]</span></span><br><span class="line"><span class="string">Explanation:</span></span><br><span class="line"><span class="string">The above output corresponds to the 5 unique BST'</span>s shown below:</span><br><span class="line"></span><br><span class="line">   <span class="number">1</span>         <span class="number">3</span>     <span class="number">3</span>      <span class="number">2</span>      <span class="number">1</span></span><br><span class="line">    \       /     /      / \      \</span><br><span class="line">     <span class="number">3</span>     <span class="number">2</span>     <span class="number">1</span>      <span class="number">1</span>   <span class="number">3</span>      <span class="number">2</span></span><br><span class="line">    /     /       \                 \</span><br><span class="line">   <span class="number">2</span>     <span class="number">1</span>         <span class="number">2</span>                 <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Tree</category>
       </categories>
   </entry>
 </search>
