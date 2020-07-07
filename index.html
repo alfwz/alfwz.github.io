@@ -204,6 +204,10 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
                 </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/Backtrack/" itemprop="url" rel="index"><span itemprop="name">Backtrack</span></a>
+                </span>
             </span>
 
           
@@ -231,7 +235,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1>
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>result = []<br>def backtrack(路径, 选择列表):<br>    if 满足结束条件:<br>        result.add(路径)<br>        return</p>
+<pre><code>for 选择 in 选择列表:
+    做选择
+    backtrack(路径, 选择列表)
+    撤销选择</code></pre>
       
     </div>
 
@@ -629,7 +637,7 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/BFS-DFS/" itemprop="url" rel="index"><span itemprop="name">BFS/DFS</span></a>
+                  <a href="/categories/Leetcode/BFS/" itemprop="url" rel="index"><span itemprop="name">BFS</span></a>
                 </span>
             </span>
 
