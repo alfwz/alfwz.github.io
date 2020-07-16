@@ -16,19 +16,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"default"},"back2top":{"enable":false,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="DescriptionInput: [1,2,2]Output:[  [2],  [1],  [1,2,2],  [2,2],  [1,2],  []] Solution123456789101112131415161718192021222324class Solution &amp;#123;    public List&lt;List&lt;Integer&gt;&gt; subsetsWithD">
+  <meta name="description" content="Description123456789Given the below binary tree and sum &#x3D; 22,      5     &#x2F; \    4   8   &#x2F;   &#x2F; \  11  13  4 &#x2F;  \      \7    2      1 Solution12345678910111213141516class Solution &amp;#123;    public boole">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC090 Subsets II">
-<meta property="og:url" content="http://yoursite.com/2020/LC090-Subsets-II/index.html">
+<meta property="og:title" content="LC112 Path Sum">
+<meta property="og:url" content="http://yoursite.com/2020/LC112-Path-Sum/index.html">
 <meta property="og:site_name" content="alfwz">
-<meta property="og:description" content="DescriptionInput: [1,2,2]Output:[  [2],  [1],  [1,2,2],  [2,2],  [1,2],  []] Solution123456789101112131415161718192021222324class Solution &amp;#123;    public List&lt;List&lt;Integer&gt;&gt; subsetsWithD">
+<meta property="og:description" content="Description123456789Given the below binary tree and sum &#x3D; 22,      5     &#x2F; \    4   8   &#x2F;   &#x2F; \  11  13  4 &#x2F;  \      \7    2      1 Solution12345678910111213141516class Solution &amp;#123;    public boole">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-07T23:19:12.000Z">
-<meta property="article:modified_time" content="2020-07-08T01:02:29.801Z">
+<meta property="article:published_time" content="2020-07-16T22:51:35.000Z">
+<meta property="article:modified_time" content="2020-07-16T22:52:06.301Z">
 <meta property="article:author" content="Fengwei Zhang">
+<meta property="article:tag" content="DFS">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/LC090-Subsets-II/">
+<link rel="canonical" href="http://yoursite.com/2020/LC112-Path-Sum/">
 
 
 <script id="page-configurations">
@@ -41,7 +42,7 @@
   };
 </script>
 
-  <title>LC090 Subsets II | alfwz</title>
+  <title>LC112 Path Sum | alfwz</title>
   
 
 
@@ -175,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC090-Subsets-II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC112-Path-Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -188,7 +189,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC090 Subsets II
+          LC112 Path Sum
         </h1>
 
         <div class="post-meta">
@@ -198,7 +199,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 07-07-2020 19:19:12" itemprop="dateCreated datePublished" datetime="2020-07-07T19:19:12-04:00">07-07-2020</time>
+              <time title="Created: 07-16-2020 18:51:35" itemprop="dateCreated datePublished" datetime="2020-07-16T18:51:35-04:00">07-16-2020</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -210,7 +211,7 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/Backtrack/" itemprop="url" rel="index"><span itemprop="name">Backtrack</span></a>
+                  <a href="/categories/Leetcode/Tree/" itemprop="url" rel="index"><span itemprop="name">Tree</span></a>
                 </span>
             </span>
 
@@ -223,8 +224,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/LC090-Subsets-II/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC090-Subsets-II/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2020/LC112-Path-Sum/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC112-Path-Sum/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -239,8 +240,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Input: [1,2,2]<br>Output:<br>[<br>  [2],<br>  [1],<br>  [1,2,2],<br>  [2,2],<br>  [1,2],<br>  []<br>]</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; subsetsWithDup(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        backtrack(res, <span class="keyword">new</span> ArrayList&lt;&gt;(), nums, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; res, List&lt;Integer&gt; temp, <span class="keyword">int</span>[] nums, <span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">        <span class="comment">//空的也要放进去</span></span><br><span class="line">        res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(temp));</span><br><span class="line">        <span class="comment">//选择列表</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=start; i&lt;nums.length; i++)&#123;</span><br><span class="line">            <span class="comment">//判断是不是第一个树</span></span><br><span class="line">            <span class="keyword">if</span>(start&lt;i &amp;&amp; nums[i]==nums[i-<span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="comment">//做选择</span></span><br><span class="line">            temp.add(nums[i]);</span><br><span class="line">            <span class="comment">//回溯</span></span><br><span class="line">            backtrack(res, temp, nums, i+<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//剪枝</span></span><br><span class="line">            temp.remove(temp.size()-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Given the below binary tree and sum = <span class="number">22</span>,</span><br><span class="line"></span><br><span class="line">      <span class="number">5</span></span><br><span class="line">     / \</span><br><span class="line">    <span class="number">4</span>   <span class="number">8</span></span><br><span class="line">   /   / \</span><br><span class="line">  <span class="number">11</span>  <span class="number">13</span>  <span class="number">4</span></span><br><span class="line"> /  \      \</span><br><span class="line"><span class="number">7</span>    <span class="number">2</span>      <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> DFS(root, sum, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">DFS</span><span class="params">(TreeNode node, <span class="keyword">int</span> sum, <span class="keyword">int</span> runningSum)</span></span>&#123;</span><br><span class="line">        <span class="comment">//stop case</span></span><br><span class="line">        <span class="keyword">if</span>(node ==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        runningSum=runningSum+node.val;</span><br><span class="line">        <span class="comment">//leaf</span></span><br><span class="line">        <span class="keyword">if</span>(node.left==<span class="keyword">null</span> &amp;&amp; node.right==<span class="keyword">null</span>) <span class="keyword">return</span> sum==runningSum;</span><br><span class="line">        <span class="keyword">return</span> DFS(node.left, sum, runningSum) || DFS(node.right, sum, runningSum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -249,6 +250,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DFS/" rel="tag"># DFS</a>
+          </div>
 
         
 
@@ -256,13 +260,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/LC051-N-Queens/" rel="prev" title="❓LC051 N-Queens">
-      <i class="fa fa-chevron-left"></i> ❓LC051 N-Queens
+    <a href="/2020/LC110-Balanced-Binary-Tree/" rel="prev" title="LC110 Balanced Binary Tree">
+      <i class="fa fa-chevron-left"></i> LC110 Balanced Binary Tree
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/LC047-Permuatations-II/" rel="next" title="LC047 Permuatations II">
-      LC047 Permuatations II <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -449,9 +450,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2020/LC090-Subsets-II/";
-    this.page.identifier = "2020/LC090-Subsets-II/";
-    this.page.title = "LC090 Subsets II";
+    this.page.url = "http://yoursite.com/2020/LC112-Path-Sum/";
+    this.page.identifier = "2020/LC112-Path-Sum/";
+    this.page.title = "LC112 Path Sum";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
