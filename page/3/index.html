@@ -170,6 +170,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC567-Permuatition-is-String/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengwei Zhang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="alfwz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/LC567-Permuatition-is-String/" class="post-title-link" itemprop="url">LC567 Permuatition is String</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 07-06-2020 23:22:46" itemprop="dateCreated datePublished" datetime="2020-07-06T23:22:46-04:00">07-06-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/Sliding-Window/" itemprop="url" rel="index"><span itemprop="name">Sliding Window</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/LC567-Permuatition-is-String/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC567-Permuatition-is-String/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example 1:</p>
+<p>Input: s1 = “ab” s2 = “eidbaooo”<br>Output: True<br>Explanation: s2 contains one permutation of s1 (“ba”).</p>
+<p>Example 2:</p>
+<p>Input:s1= “ab” s2 = “eidboaoo”<br>Output: False</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkInclusion</span><span class="params">(String s1, String s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s1.length() &gt; s2.length()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        </span><br><span class="line">        Map&lt;Character, Integer&gt; need = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;Character, Integer&gt; window = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//need</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> ch: s1.toCharArray())&#123;</span><br><span class="line">            need.put(ch, need.getOrDefault(ch, <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//slide window</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s2.length(); i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> temp = s2.charAt(i);</span><br><span class="line">            <span class="comment">//右移</span></span><br><span class="line">            window.put(temp, window.getOrDefault(temp, <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//左移</span></span><br><span class="line">            <span class="keyword">if</span>(i&gt;=s1.length())&#123;</span><br><span class="line">                temp = s2.charAt(i-s1.length());</span><br><span class="line">                <span class="keyword">if</span>(window.get(temp) ==<span class="number">1</span>)&#123;</span><br><span class="line">                    window.remove(temp);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    window.put(temp, window.get(temp)-<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//比较</span></span><br><span class="line">            <span class="keyword">if</span>(window.equals(need)) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC076-Minimum-Window-Substring/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -940,91 +1029,6 @@
 <p>Explanation: The array cannot be partitioned into equal sum subsets.</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//“0-1 背包问题”，它的特点是：“每个数只能用一次”。思路是：物品一个一个选，容量也一点一点放大考虑</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canPartition</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums==<span class="keyword">null</span> || nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            sum=sum+nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//和是奇数 无法分成两半</span></span><br><span class="line">        <span class="keyword">if</span>(sum%<span class="number">2</span>==<span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> target = sum/<span class="number">2</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//state [物品索引][背包容量]</span></span><br><span class="line">        <span class="comment">//一个一个物品放 容量一点一点加</span></span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[nums.length][target+<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//base case</span></span><br><span class="line">        <span class="comment">//放第一个物品时 只能让背包刚好装下 不然后面的归纳过来都是false</span></span><br><span class="line">        <span class="keyword">if</span>(nums[<span class="number">0</span>] &lt;= target)&#123;</span><br><span class="line">            dp[<span class="number">0</span>][nums[<span class="number">0</span>]] = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//state</span></span><br><span class="line">        <span class="comment">//当前target只要nums[0-i]其中一个能放进去就是 true</span></span><br><span class="line">        <span class="comment">//所以只要前一个是true这个也是true</span></span><br><span class="line">        <span class="comment">//或者组合前一个数即 当前数加上前一个数放[target-当前数]时是true</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;target+<span class="number">1</span>; j++)&#123;</span><br><span class="line">                <span class="comment">//容量不足 不装进当前物品</span></span><br><span class="line">                <span class="keyword">if</span>(j-nums[i]&lt;<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[i][j]=dp[i-<span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//容量够 装入或者不装入</span></span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j]=dp[i-<span class="number">1</span>][j] || dp[i-<span class="number">1</span>][j-nums[i]];</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line"><span class="comment">//                 //默认当前就是上次的T/F</span></span><br><span class="line"><span class="comment">//                 dp[i][j] = dp[i-1][j];</span></span><br><span class="line"><span class="comment">//                 //当前1个数就正好=target</span></span><br><span class="line"><span class="comment">//                 if(nums[i] == j)&#123;</span></span><br><span class="line"><span class="comment">//                     dp[i][j] = true;</span></span><br><span class="line"><span class="comment">//                     continue;</span></span><br><span class="line"><span class="comment">//                 &#125;</span></span><br><span class="line">                </span><br><span class="line"><span class="comment">//                 //当前数&lt;target</span></span><br><span class="line"><span class="comment">//                 if(nums[i] &lt; j)&#123;</span></span><br><span class="line"><span class="comment">//                     dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]];</span></span><br><span class="line"><span class="comment">//                 &#125;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dp[nums.length - <span class="number">1</span>][target];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC300-Longest-Increasing-Subsequence/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengwei Zhang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="alfwz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/LC300-Longest-Increasing-Subsequence/" class="post-title-link" itemprop="url">LC300 Longest Increasing Subsequence</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 06-29-2020 16:26:04" itemprop="dateCreated datePublished" datetime="2020-06-29T16:26:04-04:00">06-29-2020</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/LC300-Longest-Increasing-Subsequence/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC300-Longest-Increasing-Subsequence/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Input: [10,9,2,5,3,7,101,18]<br>Output: 4<br>Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4. </p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//state</span></span><br><span class="line"><span class="comment">//base case</span></span><br><span class="line"><span class="comment">//function</span></span><br><span class="line"><span class="comment">//result </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//state</span></span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//base case</span></span><br><span class="line">        Arrays.fill(dp,<span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//function</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]&gt;nums[j])&#123;</span><br><span class="line">                    dp[i] = Math.max(dp[i], dp[j]+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//result</span></span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;dp.length; i++)&#123;</span><br><span class="line">            res= Math.max(res, dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 

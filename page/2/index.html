@@ -170,6 +170,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC108-Convert-Sorted-Array-to-Binary-Search-Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengwei Zhang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="alfwz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/LC108-Convert-Sorted-Array-to-Binary-Search-Tree/" class="post-title-link" itemprop="url">LC108 Convert Sorted Array to Binary Search Tree</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 07-16-2020 15:08:28" itemprop="dateCreated datePublished" datetime="2020-07-16T15:08:28-04:00">07-16-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/Tree/" itemprop="url" rel="index"><span itemprop="name">Tree</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/LC108-Convert-Sorted-Array-to-Binary-Search-Tree/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC108-Convert-Sorted-Array-to-Binary-Search-Tree/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Given the sorted array: [-<span class="number">10</span>,-<span class="number">3</span>,<span class="number">0</span>,<span class="number">5</span>,<span class="number">9</span>],</span><br><span class="line"></span><br><span class="line">One possible answer is: [<span class="number">0</span>,-<span class="number">3</span>,<span class="number">9</span>,-<span class="number">10</span>,<span class="keyword">null</span>,<span class="number">5</span>], which represents the following height balanced BST:</span><br><span class="line"></span><br><span class="line">      <span class="number">0</span></span><br><span class="line">     / \</span><br><span class="line">   -<span class="number">3</span>   <span class="number">9</span></span><br><span class="line">   /   /</span><br><span class="line"> -<span class="number">10</span>  <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">sortedArrayToBST</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        </span><br><span class="line">        TreeNode root = helper(nums, <span class="number">0</span>, nums.length-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> TreeNode <span class="title">helper</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(low&gt;high) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//避免overflow</span></span><br><span class="line">        <span class="keyword">int</span> mid = low + (high - low)/<span class="number">2</span>;</span><br><span class="line">        TreeNode node = <span class="keyword">new</span> TreeNode(nums[mid]);</span><br><span class="line">        node.left = helper(nums, low, mid-<span class="number">1</span>);</span><br><span class="line">        node.right = helper(nums, mid+<span class="number">1</span>, high);</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC107-Binary-Tree-Level-Order-Traversal-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -934,95 +1021,6 @@
 <p>3、当移动 left 缩小窗口，即移出字符时，应该更新哪些数据？</p>
 <p>4、我们要的结果应该在扩大窗口时还是缩小窗口时进行更新？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findAnagrams</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(p.length() &gt; s.length()) <span class="keyword">return</span> <span class="keyword">new</span> ArrayList();</span><br><span class="line">        </span><br><span class="line">        Map&lt;Character, Integer&gt; window = <span class="keyword">new</span> HashMap();</span><br><span class="line">        Map&lt;Character, Integer&gt; need = <span class="keyword">new</span> HashMap();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//need</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> ch: p.toCharArray())&#123;</span><br><span class="line">            need.put(ch, need.getOrDefault(ch, <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//result </span></span><br><span class="line">        List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//slide window</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.length(); ++i)&#123;</span><br><span class="line">            <span class="keyword">char</span> temp = s.charAt(i);</span><br><span class="line">            <span class="comment">//window 右滑</span></span><br><span class="line">            window.put(temp, window.getOrDefault(temp, <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">            </span><br><span class="line">            <span class="comment">//window左滑 window size固定 所以就是window比p长时开始左滑</span></span><br><span class="line">            <span class="keyword">if</span>(i&gt;=p.length())&#123;</span><br><span class="line">                temp = s.charAt(i-p.length());</span><br><span class="line">                <span class="keyword">if</span>(window.get(temp) == <span class="number">1</span>)&#123;</span><br><span class="line">                    window.remove(temp);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    window.put(temp, window.get(temp)-<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">            <span class="comment">//比较window 和need</span></span><br><span class="line">            <span class="keyword">if</span>(window.equals(need))&#123;</span><br><span class="line">                <span class="comment">//加入的是window left</span></span><br><span class="line">                <span class="comment">//当前i指针-need长度+1 因为i少了1</span></span><br><span class="line">                result.add(i-p.length()+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC567-Permuatition-is-String/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengwei Zhang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="alfwz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/LC567-Permuatition-is-String/" class="post-title-link" itemprop="url">LC567 Permuatition is String</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 07-06-2020 23:22:46" itemprop="dateCreated datePublished" datetime="2020-07-06T23:22:46-04:00">07-06-2020</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/Sliding-Window/" itemprop="url" rel="index"><span itemprop="name">Sliding Window</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/LC567-Permuatition-is-String/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC567-Permuatition-is-String/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example 1:</p>
-<p>Input: s1 = “ab” s2 = “eidbaooo”<br>Output: True<br>Explanation: s2 contains one permutation of s1 (“ba”).</p>
-<p>Example 2:</p>
-<p>Input:s1= “ab” s2 = “eidboaoo”<br>Output: False</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkInclusion</span><span class="params">(String s1, String s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s1.length() &gt; s2.length()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        </span><br><span class="line">        Map&lt;Character, Integer&gt; need = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;Character, Integer&gt; window = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//need</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> ch: s1.toCharArray())&#123;</span><br><span class="line">            need.put(ch, need.getOrDefault(ch, <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//slide window</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s2.length(); i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> temp = s2.charAt(i);</span><br><span class="line">            <span class="comment">//右移</span></span><br><span class="line">            window.put(temp, window.getOrDefault(temp, <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//左移</span></span><br><span class="line">            <span class="keyword">if</span>(i&gt;=s1.length())&#123;</span><br><span class="line">                temp = s2.charAt(i-s1.length());</span><br><span class="line">                <span class="keyword">if</span>(window.get(temp) ==<span class="number">1</span>)&#123;</span><br><span class="line">                    window.remove(temp);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    window.put(temp, window.get(temp)-<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//比较</span></span><br><span class="line">            <span class="keyword">if</span>(window.equals(need)) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
