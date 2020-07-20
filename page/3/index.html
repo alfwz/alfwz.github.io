@@ -170,6 +170,101 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC438-Find-All-Anagrams-in-a-String/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengwei Zhang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="alfwz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/LC438-Find-All-Anagrams-in-a-String/" class="post-title-link" itemprop="url">LC438 Find All Anagrams in a String</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 07-07-2020 11:34:03" itemprop="dateCreated datePublished" datetime="2020-07-07T11:34:03-04:00">07-07-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/Sliding-Window/" itemprop="url" rel="index"><span itemprop="name">Sliding Window</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/LC438-Find-All-Anagrams-in-a-String/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC438-Find-All-Anagrams-in-a-String/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>滑动窗口算法的思路是这样：</p>
+<p>1、我们在字符串 S 中使用双指针中的左右指针技巧，初始化 left = right = 0，把索引左闭右开区间 [left, right) 称为一个「窗口」。</p>
+<p>2、我们先不断地增加 right 指针扩大窗口 [left, right)，直到窗口中的字符串符合要求（包含了 T 中的所有字符）。</p>
+<p>3、此时，我们停止增加 right，转而不断增加 left 指针缩小窗口 [left, right)，直到窗口中的字符串不再符合要求（不包含 T 中的所有字符了）。同时，每次增加 left，我们都要更新一轮结果。</p>
+<p>4、重复第 2 和第 3 步，直到 right 到达字符串 S 的尽头。</p>
+<p>这个思路其实也不难，第 2 步相当于在寻找一个「可行解」，然后第 3 步在优化这个「可行解」，最终找到最优解，也就是最短的覆盖子串。左右指针轮流前进，窗口大小增增减减，窗口不断向右滑动，这就是「滑动窗口」这个名字的来历。</p>
+<p>现在开始套模板，只需要思考以下四个问题：</p>
+<p>1、当移动 right 扩大窗口，即加入字符时，应该更新哪些数据？</p>
+<p>2、什么条件下，窗口应该暂停扩大，开始移动 left 缩小窗口？</p>
+<p>3、当移动 left 缩小窗口，即移出字符时，应该更新哪些数据？</p>
+<p>4、我们要的结果应该在扩大窗口时还是缩小窗口时进行更新？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findAnagrams</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(p.length() &gt; s.length()) <span class="keyword">return</span> <span class="keyword">new</span> ArrayList();</span><br><span class="line">        </span><br><span class="line">        Map&lt;Character, Integer&gt; window = <span class="keyword">new</span> HashMap();</span><br><span class="line">        Map&lt;Character, Integer&gt; need = <span class="keyword">new</span> HashMap();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//need</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> ch: p.toCharArray())&#123;</span><br><span class="line">            need.put(ch, need.getOrDefault(ch, <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//result </span></span><br><span class="line">        List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//slide window</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.length(); ++i)&#123;</span><br><span class="line">            <span class="keyword">char</span> temp = s.charAt(i);</span><br><span class="line">            <span class="comment">//window 右滑</span></span><br><span class="line">            window.put(temp, window.getOrDefault(temp, <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">            </span><br><span class="line">            <span class="comment">//window左滑 window size固定 所以就是window比p长时开始左滑</span></span><br><span class="line">            <span class="keyword">if</span>(i&gt;=p.length())&#123;</span><br><span class="line">                temp = s.charAt(i-p.length());</span><br><span class="line">                <span class="keyword">if</span>(window.get(temp) == <span class="number">1</span>)&#123;</span><br><span class="line">                    window.remove(temp);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    window.put(temp, window.get(temp)-<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">            <span class="comment">//比较window 和need</span></span><br><span class="line">            <span class="keyword">if</span>(window.equals(need))&#123;</span><br><span class="line">                <span class="comment">//加入的是window left</span></span><br><span class="line">                <span class="comment">//当前i指针-need长度+1 因为i少了1</span></span><br><span class="line">                result.add(i-p.length()+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC567-Permuatition-is-String/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -932,102 +1027,6 @@
 <p>Input: coins = [1, 2, 5], amount = 11<br>Output: 3<br>Explanation: 11 = 5 + 5 + 1<br>Example 2:</p>
 <p>Input: coins = [2], amount = 3<br>Output: -1</p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="keyword">int</span>[] coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//state: 需要多少硬币凑成目标amount</span></span><br><span class="line">        <span class="comment">//由于硬币数量无限，所以唯一的状态就是目标金额 amount</span></span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[amount+<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//base case</span></span><br><span class="line">        <span class="comment">//初始化为 amount + 1 就相当于初始化为正无穷，便于后续取最小值</span></span><br><span class="line">        Arrays.fill(dp, amount+<span class="number">1</span>);</span><br><span class="line">        dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//function</span></span><br><span class="line">        <span class="comment">//当前最优解是</span></span><br><span class="line">        <span class="comment">//dp[i] = min(dp[i], dp[i-能减去的当前硬币面值]+1) </span></span><br><span class="line">        <span class="comment">//用每个硬币来试 面值小于amount才能试 当前amount能减去当前试的硬币那就是amount减去的那个状态+1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;amount+<span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="comment">//求amount为i时 用哪个硬币数量最少</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;coins.length; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(coins[j] &lt;= i)&#123;</span><br><span class="line">                    dp[i] = Math.min(dp[i], dp[i-coins[j]]+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(dp[amount]&gt;amount)&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> dp[amount];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC416-Partition-Equal-Subset-Sum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengwei Zhang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="alfwz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/LC416-Partition-Equal-Subset-Sum/" class="post-title-link" itemprop="url">LC416 Partition Equal Subset Sum</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 06-30-2020 14:02:11" itemprop="dateCreated datePublished" datetime="2020-06-30T14:02:11-04:00">06-30-2020</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/LC416-Partition-Equal-Subset-Sum/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC416-Partition-Equal-Subset-Sum/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given a non-empty array containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.</p>
-<p>Note:</p>
-<p>Each of the array element will not exceed 100.<br>The array size will not exceed 200.</p>
-<p>Example 1:</p>
-<p>Input: [1, 5, 11, 5]</p>
-<p>Output: true</p>
-<p>Explanation: The array can be partitioned as [1, 5, 5] and [11].</p>
-<p>Example 2:</p>
-<p>Input: [1, 2, 3, 5]</p>
-<p>Output: false</p>
-<p>Explanation: The array cannot be partitioned into equal sum subsets.</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//“0-1 背包问题”，它的特点是：“每个数只能用一次”。思路是：物品一个一个选，容量也一点一点放大考虑</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canPartition</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums==<span class="keyword">null</span> || nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            sum=sum+nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//和是奇数 无法分成两半</span></span><br><span class="line">        <span class="keyword">if</span>(sum%<span class="number">2</span>==<span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> target = sum/<span class="number">2</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//state [物品索引][背包容量]</span></span><br><span class="line">        <span class="comment">//一个一个物品放 容量一点一点加</span></span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[nums.length][target+<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//base case</span></span><br><span class="line">        <span class="comment">//放第一个物品时 只能让背包刚好装下 不然后面的归纳过来都是false</span></span><br><span class="line">        <span class="keyword">if</span>(nums[<span class="number">0</span>] &lt;= target)&#123;</span><br><span class="line">            dp[<span class="number">0</span>][nums[<span class="number">0</span>]] = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//state</span></span><br><span class="line">        <span class="comment">//当前target只要nums[0-i]其中一个能放进去就是 true</span></span><br><span class="line">        <span class="comment">//所以只要前一个是true这个也是true</span></span><br><span class="line">        <span class="comment">//或者组合前一个数即 当前数加上前一个数放[target-当前数]时是true</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;target+<span class="number">1</span>; j++)&#123;</span><br><span class="line">                <span class="comment">//容量不足 不装进当前物品</span></span><br><span class="line">                <span class="keyword">if</span>(j-nums[i]&lt;<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[i][j]=dp[i-<span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//容量够 装入或者不装入</span></span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j]=dp[i-<span class="number">1</span>][j] || dp[i-<span class="number">1</span>][j-nums[i]];</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line"><span class="comment">//                 //默认当前就是上次的T/F</span></span><br><span class="line"><span class="comment">//                 dp[i][j] = dp[i-1][j];</span></span><br><span class="line"><span class="comment">//                 //当前1个数就正好=target</span></span><br><span class="line"><span class="comment">//                 if(nums[i] == j)&#123;</span></span><br><span class="line"><span class="comment">//                     dp[i][j] = true;</span></span><br><span class="line"><span class="comment">//                     continue;</span></span><br><span class="line"><span class="comment">//                 &#125;</span></span><br><span class="line">                </span><br><span class="line"><span class="comment">//                 //当前数&lt;target</span></span><br><span class="line"><span class="comment">//                 if(nums[i] &lt; j)&#123;</span></span><br><span class="line"><span class="comment">//                     dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]];</span></span><br><span class="line"><span class="comment">//                 &#125;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dp[nums.length - <span class="number">1</span>][target];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>LC359 Logger Rate Limiter</title>
+      <link href="/2020/LC359-Logger-Rate-Limiter/"/>
+      <url>/2020/LC359-Logger-Rate-Limiter/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Logger</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;String, Integer&gt; map;</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Logger</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns true if the message should be printed in the given timestamp, otherwise returns false.</span></span><br><span class="line"><span class="comment">        If this method returns false, the message will not be printed.</span></span><br><span class="line"><span class="comment">        The timestamp is in seconds granularity. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldPrintMessage</span><span class="params">(<span class="keyword">int</span> timestamp, String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(message) &amp;&amp; (timestamp - map.get(message))&lt;<span class="number">10</span> )&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        map.put(message, timestamp);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Logger object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Logger obj = new Logger();</span></span><br><span class="line"><span class="comment"> * boolean param_1 = obj.shouldPrintMessage(timestamp,message);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Leetcode </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LC653 Two Sum IV - Input is a BST</title>
       <link href="/2020/LC653-Two-Sum-IV-Input-is-a-BST/"/>
       <url>/2020/LC653-Two-Sum-IV-Input-is-a-BST/</url>
