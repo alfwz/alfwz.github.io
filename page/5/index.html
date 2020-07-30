@@ -170,6 +170,265 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC103-Binary-Tree-Zigzag-Level-Order-Traversal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengwei Zhang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="alfwz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/LC103-Binary-Tree-Zigzag-Level-Order-Traversal/" class="post-title-link" itemprop="url">LC103 Binary Tree Zigzag Level Order Traversal</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 07-02-2020 14:57:46" itemprop="dateCreated datePublished" datetime="2020-07-02T14:57:46-04:00">07-02-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/Tree/" itemprop="url" rel="index"><span itemprop="name">Tree</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/LC103-Binary-Tree-Zigzag-Level-Order-Traversal/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC103-Binary-Tree-Zigzag-Level-Order-Traversal/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given a binary tree, return the zigzag level order traversal of its nodes’ values. (ie, from left to right, then right to left for the next level and alternate between).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">For example:</span><br><span class="line">Given binary tree [<span class="number">3</span>,<span class="number">9</span>,<span class="number">20</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="number">15</span>,<span class="number">7</span>],</span><br><span class="line">    <span class="number">3</span></span><br><span class="line">   / \</span><br><span class="line">  <span class="number">9</span>  <span class="number">20</span></span><br><span class="line">    /  \</span><br><span class="line">   <span class="number">15</span>   <span class="number">7</span></span><br><span class="line"><span class="keyword">return</span> its zigzag level order traversal as:</span><br><span class="line">[</span><br><span class="line">  [<span class="number">3</span>],</span><br><span class="line">  [<span class="number">20</span>,<span class="number">9</span>],</span><br><span class="line">  [<span class="number">15</span>,<span class="number">7</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; zigzagLevelOrder(TreeNode root) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span>(root ==<span class="keyword">null</span>) <span class="keyword">return</span> ans;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//核心数据结构</span></span><br><span class="line">        LinkedList&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        <span class="comment">//加入起点</span></span><br><span class="line">        q.add(root);</span><br><span class="line">        <span class="comment">//记录层数</span></span><br><span class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(!q.isEmpty())&#123;</span><br><span class="line">            List&lt;Integer&gt; tmp = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">int</span> len = q.size();</span><br><span class="line">            <span class="comment">//扩散</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">                TreeNode node = q.poll();</span><br><span class="line">                <span class="comment">//偶数层就正常往后存</span></span><br><span class="line">                <span class="comment">//奇数层就存最前面</span></span><br><span class="line">                <span class="keyword">if</span>(cnt %<span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                    tmp.add(node.val);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    tmp.add(<span class="number">0</span>, node.val);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//相邻节点加入队列</span></span><br><span class="line">                <span class="keyword">if</span>(node.left!=<span class="keyword">null</span>) q.add(node.left);</span><br><span class="line">                <span class="keyword">if</span>(node.right!=<span class="keyword">null</span>) q.add(node.right);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//记录层数</span></span><br><span class="line">            cnt++;</span><br><span class="line">            ans.add(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC100-Same-Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengwei Zhang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="alfwz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/LC100-Same-Tree/" class="post-title-link" itemprop="url">LC100 Same Tree</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 07-02-2020 14:52:44" itemprop="dateCreated datePublished" datetime="2020-07-02T14:52:44-04:00">07-02-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/Tree/" itemprop="url" rel="index"><span itemprop="name">Tree</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/LC100-Same-Tree/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC100-Same-Tree/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Example <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">Input:     <span class="number">1</span>         <span class="number">1</span></span><br><span class="line">          / \       / \</span><br><span class="line">         <span class="number">2</span>   <span class="number">3</span>     <span class="number">2</span>   <span class="number">3</span></span><br><span class="line"></span><br><span class="line">        [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],   [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">Output: <span class="keyword">true</span></span><br><span class="line">Example <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">Input:     <span class="number">1</span>         <span class="number">1</span></span><br><span class="line">          /           \</span><br><span class="line">         <span class="number">2</span>             <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        [<span class="number">1</span>,<span class="number">2</span>],     [<span class="number">1</span>,<span class="keyword">null</span>,<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">Output: <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSameTree</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(p == <span class="keyword">null</span> &amp;&amp; q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">//包含3种情况 但上面都是null情况已经return true 所以 p ||q时是其中一个</span></span><br><span class="line">        <span class="keyword">if</span>(p ==<span class="keyword">null</span> || q == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(p.val != q.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> isSameTree(p.right, q.right) &amp;&amp; isSameTree(p.left, q.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC095-Unique-Binary-Search-Trees-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengwei Zhang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="alfwz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/LC095-Unique-Binary-Search-Trees-2/" class="post-title-link" itemprop="url">LC095 Unique Binary Search Trees 2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 07-02-2020 11:58:30" itemprop="dateCreated datePublished" datetime="2020-07-02T11:58:30-04:00">07-02-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/Tree/" itemprop="url" rel="index"><span itemprop="name">Tree</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/LC095-Unique-Binary-Search-Trees-2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC095-Unique-Binary-Search-Trees-2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given an integer n, generate all structurally unique BST’s (binary search trees) that store values 1 … n.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Input: <span class="number">3</span></span><br><span class="line">Output:</span><br><span class="line">[</span><br><span class="line">  [<span class="number">1</span>,<span class="keyword">null</span>,<span class="number">3</span>,<span class="number">2</span>],</span><br><span class="line">  [<span class="number">3</span>,<span class="number">2</span>,<span class="keyword">null</span>,<span class="number">1</span>],</span><br><span class="line">  [<span class="number">3</span>,<span class="number">1</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="number">2</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">1</span>,<span class="keyword">null</span>,<span class="number">2</span>,<span class="keyword">null</span>,<span class="number">3</span>]</span><br><span class="line">]</span><br><span class="line">Explanation:</span><br><span class="line">The above output corresponds to the <span class="number">5</span> unique BST<span class="string">'s shown below:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   1         3     3      2      1</span></span><br><span class="line"><span class="string">    \       /     /      / \      \</span></span><br><span class="line"><span class="string">     3     2     1      1   3      2</span></span><br><span class="line"><span class="string">    /     /       \                 \</span></span><br><span class="line"><span class="string">   2     1         2                 3</span></span><br></pre></td></tr></table></figure>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//返回具体arraylist没法用动态规划</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">generateTrees</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">return</span> helper(<span class="number">1</span>, n);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;TreeNode&gt; <span class="title">helper</span><span class="params">(<span class="keyword">int</span> min, <span class="keyword">int</span> max)</span></span>&#123;</span><br><span class="line">        List&lt;TreeNode&gt; result = <span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</span><br><span class="line">        <span class="comment">//stop </span></span><br><span class="line">        <span class="keyword">if</span>(min &gt; max)&#123;</span><br><span class="line">            <span class="comment">//result.add(null);</span></span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//function</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> rt = min; rt &lt;= max; rt++)&#123;</span><br><span class="line">            List&lt;TreeNode&gt; leftList = helper(min, rt-<span class="number">1</span>);</span><br><span class="line">            List&lt;TreeNode&gt; rightList = helper(rt+<span class="number">1</span>, max);</span><br><span class="line">            <span class="comment">//判断返回的list是不是都是0</span></span><br><span class="line">            <span class="keyword">if</span>(leftList.size() == <span class="number">0</span> &amp;&amp; rightList.size() == <span class="number">0</span>)&#123;</span><br><span class="line">                TreeNode root = <span class="keyword">new</span> TreeNode(rt);</span><br><span class="line">                result.add(root);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//左子树list是0 右子树不为0</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(leftList.size() == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">for</span>(TreeNode right: rightList)&#123;</span><br><span class="line">                    TreeNode root = <span class="keyword">new</span> TreeNode(rt);</span><br><span class="line">                    root.right = right;</span><br><span class="line">                    result.add(root);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//左子树不为0 右子树为0</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(rightList.size() == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">for</span>(TreeNode left: leftList)&#123;</span><br><span class="line">                    TreeNode root = <span class="keyword">new</span> TreeNode(rt);</span><br><span class="line">                    root.left = left;</span><br><span class="line">                    result.add(root);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//左右子树都不为0</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">for</span>(TreeNode left: leftList)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(TreeNode right: rightList)&#123;</span><br><span class="line">                        TreeNode root = <span class="keyword">new</span> TreeNode(rt);</span><br><span class="line">                        root.left = left;</span><br><span class="line">                        root.right = right;</span><br><span class="line">                        result.add(root);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC518-Coin-Change-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -781,272 +1040,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC114-Flatten-Binary-Tree-to-Linked-List/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengwei Zhang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="alfwz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/LC114-Flatten-Binary-Tree-to-Linked-List/" class="post-title-link" itemprop="url">LC114 Flatten Binary Tree to Linked List</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 06-28-2020 14:24:15" itemprop="dateCreated datePublished" datetime="2020-06-28T14:24:15-04:00">06-28-2020</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/Tree/" itemprop="url" rel="index"><span itemprop="name">Tree</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/LC114-Flatten-Binary-Tree-to-Linked-List/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC114-Flatten-Binary-Tree-to-Linked-List/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">For example, given the following tree:</span><br><span class="line"></span><br><span class="line">    <span class="number">1</span></span><br><span class="line">   / \</span><br><span class="line">  <span class="number">2</span>   <span class="number">5</span></span><br><span class="line"> / \   \</span><br><span class="line"><span class="number">3</span>   <span class="number">4</span>   <span class="number">6</span></span><br><span class="line">The flattened tree should look like:</span><br><span class="line"></span><br><span class="line"><span class="number">1</span></span><br><span class="line"> \</span><br><span class="line">  <span class="number">2</span></span><br><span class="line">   \</span><br><span class="line">    <span class="number">3</span></span><br><span class="line">     \</span><br><span class="line">      <span class="number">4</span></span><br><span class="line">       \</span><br><span class="line">        <span class="number">5</span></span><br><span class="line">         \</span><br><span class="line">          <span class="number">6</span></span><br></pre></td></tr></table></figure>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>树类问题大多都是递归<br>结束条件大多是node==null</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//左子树先flatten  </span></span><br><span class="line"><span class="comment">//右子树指针连左子树 断掉的右子树连接新的连上去的右子树</span></span><br><span class="line"><span class="comment">//end condition</span></span><br><span class="line"><span class="comment">//flatten left</span></span><br><span class="line"><span class="comment">//flatten right</span></span><br><span class="line"><span class="comment">//combine right and left</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">flatten</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root==<span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        flatten(root.left);</span><br><span class="line">        flatten(root.right);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//判断已经没有左子树的情况</span></span><br><span class="line">        <span class="keyword">if</span>(root.left !=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//记住右子树</span></span><br><span class="line">            TreeNode rightNode = root.right;</span><br><span class="line">            <span class="comment">//右指针指到左子树</span></span><br><span class="line">            root.right = root.left;</span><br><span class="line">            <span class="comment">//左指到null</span></span><br><span class="line">            root.left = <span class="keyword">null</span>;</span><br><span class="line">            <span class="comment">//寻找左节点最后一个节点</span></span><br><span class="line">            TreeNode leftLastNode = root;</span><br><span class="line">            <span class="keyword">while</span>(leftLastNode.right != <span class="keyword">null</span>)&#123;</span><br><span class="line">                leftLastNode = leftLastNode.right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//找到后连接右子树</span></span><br><span class="line">            leftLastNode.right = rightNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengwei Zhang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="alfwz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/LC105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal/" class="post-title-link" itemprop="url">LC105 Construct Binary Tree from Preorder and Inorder Traversal</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 06-28-2020 09:19:08" itemprop="dateCreated datePublished" datetime="2020-06-28T09:19:08-04:00">06-28-2020</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/Tree/" itemprop="url" rel="index"><span itemprop="name">Tree</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/LC105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preorder == <span class="keyword">null</span> || inorder==<span class="keyword">null</span> || preorder.length==<span class="number">0</span> || preorder.length!= inorder.length) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> buildTreeHelper(preorder, inorder, <span class="number">0</span>, <span class="number">0</span>, preorder.length-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//root=preorder[pre_st]</span></span><br><span class="line">    <span class="comment">//inorder 两个指针 start和end   preorder 一个start指针</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> TreeNode <span class="title">buildTreeHelper</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder, <span class="keyword">int</span> pre_st, <span class="keyword">int</span> in_st, <span class="keyword">int</span> in_end)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pre_st &gt; preorder.length || in_st &gt; in_end) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        TreeNode current = <span class="keyword">new</span> TreeNode(preorder[pre_st]);</span><br><span class="line">        <span class="comment">//inorder中寻找root i是在inorder中root所在位置</span></span><br><span class="line">        <span class="keyword">int</span> i=in_st;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;= in_end)&#123;</span><br><span class="line">            <span class="keyword">if</span>(inorder[i] ==preorder[pre_st]) <span class="keyword">break</span>;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//pre_st+1: 左子树就是preorder[pre_st+1]</span></span><br><span class="line">        <span class="comment">//in_st i-1: 下个左区间是 inorder[in_st]~inorder[i-1]</span></span><br><span class="line">        current.left = buildTreeHelper(preorder, inorder, pre_st+<span class="number">1</span>, in_st, i-<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//右子树在preorder里面 root现在在的位置跳过inorder里面的左区间</span></span><br><span class="line">        <span class="comment">//然后调整右区间指针</span></span><br><span class="line">        current.right = buildTreeHelper(preorder, inorder, pre_st+(i-in_st+<span class="number">1</span>), i+<span class="number">1</span>, in_end);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC104-Maxium-Depth-of-Binary-Tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengwei Zhang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="alfwz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/LC104-Maxium-Depth-of-Binary-Tree/" class="post-title-link" itemprop="url">LC104 Maxium Depth of Binary Tree</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 06-25-2020 17:02:31" itemprop="dateCreated datePublished" datetime="2020-06-25T17:02:31-04:00">06-25-2020</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/Tree/" itemprop="url" rel="index"><span itemprop="name">Tree</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/LC104-Maxium-Depth-of-Binary-Tree/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC104-Maxium-Depth-of-Binary-Tree/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Given binary tree [<span class="number">3</span>,<span class="number">9</span>,<span class="number">20</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="number">15</span>,<span class="number">7</span>],</span><br><span class="line"></span><br><span class="line">    <span class="number">3</span></span><br><span class="line">   / \</span><br><span class="line">  <span class="number">9</span>  <span class="number">20</span></span><br><span class="line">    /  \</span><br><span class="line">   <span class="number">15</span>   <span class="number">7</span></span><br><span class="line"><span class="keyword">return</span> its depth = <span class="number">3</span>.</span><br></pre></td></tr></table></figure>
-
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Recursion </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> left_height = maxDepth(root.left);</span><br><span class="line">            <span class="keyword">int</span> right_height = maxDepth(root.right);</span><br><span class="line">            <span class="keyword">return</span> java.lang.Math.max(left_height, right_height) +<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//stack iteration</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;TreeNode&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        LinkedList&lt;Integer&gt; depths = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        stack.add(root);</span><br><span class="line">        depths.add(<span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> depth=<span class="number">0</span>, current_depth=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!stack.isEmpty())&#123;</span><br><span class="line">            <span class="comment">//取出stack Linkedlist 最后一个并且移除</span></span><br><span class="line">            root = stack.pollLast();</span><br><span class="line">            current_depth = depths.pollLast();</span><br><span class="line">            <span class="keyword">if</span>(root!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                depth = Math.max(depth, current_depth);</span><br><span class="line">                stack.add(root.left);</span><br><span class="line">                stack.add(root.right);</span><br><span class="line">                <span class="comment">//?</span></span><br><span class="line">                depths.add(current_depth +<span class="number">1</span>);</span><br><span class="line">                depths.add(current_depth +<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> depth;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

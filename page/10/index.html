@@ -18,26 +18,26 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="alfwz">
-<meta property="og:url" content="http://yoursite.com/categories/Leetcode/page/9/index.html">
+<meta property="og:url" content="http://yoursite.com/page/10/index.html">
 <meta property="og:site_name" content="alfwz">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Fengwei Zhang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/categories/Leetcode/page/9/">
+<link rel="canonical" href="http://yoursite.com/page/10/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>Category: Leetcode | alfwz</title>
+  <title>alfwz</title>
   
 
 
@@ -164,214 +164,106 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/Leetcode-001/">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Leetcode
-          <small>Category</small>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengwei Zhang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="alfwz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/Leetcode-001/" class="post-title-link" itemprop="url">LC001 Two Sum</a>
         </h2>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 05-25-2020 00:01:45" itemprop="dateCreated datePublished" datetime="2020-05-25T00:01:45-04:00">05-25-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/Leetcode-001/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/Leetcode-001/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Example:</p>
+<p>Given nums = [2, 7, 11, 15], target = 9,</p>
+<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map= <span class="keyword">new</span> HashMap();</span><br><span class="line">        <span class="keyword">int</span> goal=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            map.put(nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            goal=target-nums[i];</span><br><span class="line">            <span class="comment">//用hashmap反得index来避免自身重复</span></span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(goal) &amp;&amp; map.get(goal)!=i)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i, map.get(goal)&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"NO"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
+<li>Map&lt;type, type&gt; map = new HashMap&lt;type, type&gt;()；<br>HaspMap&lt;type, type&gt; map = new HashMap&lt;type, type&gt;()；<br>区别是啥<blockquote>
+<p>HashMap是类，Map是接口，HashMap实现了接口Map，就是说HashMap实现了Map所有的方法。<br>  <a href="https://blog.csdn.net/u010648555/article/details/56049460" target="_blank" rel="noopener">java集合系列——java集合概述</a></p>
+</blockquote>
+</li>
+<li><a href="https://blog.csdn.net/renfufei/article/details/16905777" target="_blank" rel="noopener">为什么array求length没有括号而String有?</a><blockquote>
+<p>array长度固定，length是可以作为一个final属性</p>
+</blockquote>
+</li>
+</ul>
+
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-05T15:37:53-04:00"
-              content="06-05-2020">
-          06-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/LC017-Letter-Combinations-of-a-Phone-Number/" itemprop="url">
-            <span itemprop="name">LC017 Letter Combinations of a Phone Number</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-05T14:51:28-04:00"
-              content="06-05-2020">
-          06-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/LC015-3Sum/" itemprop="url">
-            <span itemprop="name">LC015 3Sum</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-30T16:35:58-04:00"
-              content="05-30-2020">
-          05-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/Leetcode-072/" itemprop="url">
-            <span itemprop="name">LC072</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-29T12:25:25-04:00"
-              content="05-29-2020">
-          05-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/Leetcode-010/" itemprop="url">
-            <span itemprop="name">LC010</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-27T19:25:28-04:00"
-              content="05-27-2020">
-          05-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/Leetcode-005/" itemprop="url">
-            <span itemprop="name">LC005</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-27T16:04:15-04:00"
-              content="05-27-2020">
-          05-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/Leetcode-004/" itemprop="url">
-            <span itemprop="name">❓LC004</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-27T12:21:14-04:00"
-              content="05-27-2020">
-          05-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/Leetcode-003/" itemprop="url">
-            <span itemprop="name">❌LC003</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-26T15:38:08-04:00"
-              content="05-26-2020">
-          05-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/Leetcode-002/" itemprop="url">
-            <span itemprop="name">LC002 Add Two Numbers</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-25T00:01:45-04:00"
-              content="05-25-2020">
-          05-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/Leetcode-001/" itemprop="url">
-            <span itemprop="name">LC001 Two Sum</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
-  </div>
   
   
   
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/Leetcode/page/8/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/categories/Leetcode/">1</a><span class="space">&hellip;</span><a class="page-number" href="/categories/Leetcode/page/8/">8</a><span class="page-number current">9</span>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
   </nav>
 
 
