@@ -4,25 +4,6 @@
   
     
     <entry>
-      <title>LC098 Validate Binary Search Tree</title>
-      <link href="/2020/LC098-Validate-Binary-Search-Tree-1/"/>
-      <url>/2020/LC098-Validate-Binary-Search-Tree-1/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> Leetcode </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>LC701 Insert into a Binary Search Tree</title>
       <link href="/2020/LC701-Insert-into-a-Binary-Search-Tree/"/>
       <url>/2020/LC701-Insert-into-a-Binary-Search-Tree/</url>
@@ -603,7 +584,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -630,7 +611,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -651,7 +632,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -672,7 +653,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -699,6 +680,8 @@
           
           <category> Leetcode </category>
           
+          <category> BT &amp; BST </category>
+          
       </categories>
       
       
@@ -718,7 +701,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -959,7 +942,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -986,7 +969,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -1007,7 +990,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -1187,7 +1170,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -1208,7 +1191,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -1229,7 +1212,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -1250,7 +1233,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -1277,7 +1260,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -1319,7 +1302,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
@@ -1346,7 +1329,7 @@
           
           <category> Leetcode </category>
           
-          <category> Tree </category>
+          <category> BT &amp; BST </category>
           
       </categories>
       
