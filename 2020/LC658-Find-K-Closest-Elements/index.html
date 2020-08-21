@@ -16,19 +16,19 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"default"},"back2top":{"enable":false,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="DescriptionSolution123456789101112131415161718&#x2F;* The isBadVersion API is defined in the parent class VersionControl.      boolean isBadVersion(int version); *&#x2F;public class Solution extends VersionCont">
+  <meta name="description" content="DescriptionSolution1234567891011121314151617181920212223242526class Solution &amp;#123;    public List&lt;Integer&gt; findClosestElements(int[] arr, int k, int x) &amp;#123;        &#x2F;&#x2F;x在这个window 左 中 右， 中有两种情况">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC278 First Bad Version">
-<meta property="og:url" content="http://yoursite.com/2020/LC278-First-Bad-Version/index.html">
+<meta property="og:title" content="LC658 Find K Closest Elements">
+<meta property="og:url" content="http://yoursite.com/2020/LC658-Find-K-Closest-Elements/index.html">
 <meta property="og:site_name" content="alfwz">
-<meta property="og:description" content="DescriptionSolution123456789101112131415161718&#x2F;* The isBadVersion API is defined in the parent class VersionControl.      boolean isBadVersion(int version); *&#x2F;public class Solution extends VersionCont">
+<meta property="og:description" content="DescriptionSolution1234567891011121314151617181920212223242526class Solution &amp;#123;    public List&lt;Integer&gt; findClosestElements(int[] arr, int k, int x) &amp;#123;        &#x2F;&#x2F;x在这个window 左 中 右， 中有两种情况">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-08-20T19:47:10.000Z">
-<meta property="article:modified_time" content="2020-08-20T19:47:28.485Z">
+<meta property="article:published_time" content="2020-08-21T18:53:32.000Z">
+<meta property="article:modified_time" content="2020-08-21T18:53:52.994Z">
 <meta property="article:author" content="Fengwei Zhang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/LC278-First-Bad-Version/">
+<link rel="canonical" href="http://yoursite.com/2020/LC658-Find-K-Closest-Elements/">
 
 
 <script id="page-configurations">
@@ -41,7 +41,7 @@
   };
 </script>
 
-  <title>LC278 First Bad Version | alfwz</title>
+  <title>LC658 Find K Closest Elements | alfwz</title>
   
 
 
@@ -175,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC278-First-Bad-Version/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC658-Find-K-Closest-Elements/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -188,7 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC278 First Bad Version
+          LC658 Find K Closest Elements
         </h1>
 
         <div class="post-meta">
@@ -198,7 +198,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 08-20-2020 15:47:10" itemprop="dateCreated datePublished" datetime="2020-08-20T15:47:10-04:00">08-20-2020</time>
+              <time title="Created: 08-21-2020 14:53:32" itemprop="dateCreated datePublished" datetime="2020-08-21T14:53:32-04:00">08-21-2020</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/LC278-First-Bad-Version/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC278-First-Bad-Version/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2020/LC658-Find-K-Closest-Elements/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC658-Find-K-Closest-Elements/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -239,7 +239,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* The isBadVersion API is defined in the parent class VersionControl.</span></span><br><span class="line"><span class="comment">      boolean isBadVersion(int version); */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> <span class="keyword">extends</span> <span class="title">VersionControl</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstBadVersion</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lo=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> hi=n;</span><br><span class="line">        <span class="keyword">while</span>(lo+<span class="number">1</span>&lt;hi)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=lo+(hi-lo)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(isBadVersion(mid))&#123;</span><br><span class="line">                hi=mid;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                lo=mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> isBadVersion(lo) ? lo : hi;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findClosestElements</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> k, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//x在这个window 左 中 右， 中有两种情况</span></span><br><span class="line">        <span class="keyword">int</span> lo=<span class="number">0</span>, hi=arr.length-k;</span><br><span class="line">        <span class="keyword">while</span>(lo+<span class="number">1</span>&lt;hi)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=lo+(hi-lo)/<span class="number">2</span>;</span><br><span class="line">            <span class="comment">//x在window中间左侧</span></span><br><span class="line">            <span class="keyword">if</span>(x-arr[mid] &lt;= arr[mid+k]-x)&#123;</span><br><span class="line">                hi=mid;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                lo=mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> idx=getDiff(arr, k, x, lo) &lt;= getDiff(arr, k, x, hi) ? lo : hi;</span><br><span class="line">        <span class="keyword">return</span> Arrays.stream(arr, idx, idx+k).boxed().collect(Collectors.toList());</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getDiff</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> k, <span class="keyword">int</span> x, <span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> diff=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=start; i&lt;start+k; i++)&#123;</span><br><span class="line">            diff +=Math.abs(A[i]-x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> diff;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -255,12 +255,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/LC702-Search-in-a-Sorted-Array-of-Unknown-Size/" rel="prev" title="LC702 Search in a Sorted Array of Unknown Size">
-      <i class="fa fa-chevron-left"></i> LC702 Search in a Sorted Array of Unknown Size
+    <a href="/2020/LC475-Heaters/" rel="prev" title="LC475 Heaters">
+      <i class="fa fa-chevron-left"></i> LC475 Heaters
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/LC475-Heaters/" rel="next" title="LC475 Heaters">
-      LC475 Heaters <i class="fa fa-chevron-right"></i>
+    <a href="/2020/LC1060-Missing-Element-in-Sorted-Array/" rel="next" title="LC1060 Missing Element in Sorted Array">
+      LC1060 Missing Element in Sorted Array <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -448,9 +448,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2020/LC278-First-Bad-Version/";
-    this.page.identifier = "2020/LC278-First-Bad-Version/";
-    this.page.title = "LC278 First Bad Version";
+    this.page.url = "http://yoursite.com/2020/LC658-Find-K-Closest-Elements/";
+    this.page.identifier = "2020/LC658-Find-K-Closest-Elements/";
+    this.page.title = "LC658 Find K Closest Elements";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
