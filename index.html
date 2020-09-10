@@ -170,6 +170,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC460-LFU-Cache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengwei Zhang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="alfwz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/LC460-LFU-Cache/" class="post-title-link" itemprop="url">LC460 LFU Cache</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 09-10-2020 01:06:20" itemprop="dateCreated datePublished" datetime="2020-09-10T01:06:20-04:00">09-10-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/Design/" itemprop="url" rel="index"><span itemprop="name">Design</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/LC460-LFU-Cache/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC460-LFU-Cache/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LFUCache</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer, Node&gt; nodeMap;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer, List&gt; freqMap;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> min;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LFUCache</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        nodeMap=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        freqMap=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">this</span>.capacity=capacity;</span><br><span class="line">        min=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        Node node = nodeMap.get(key);</span><br><span class="line">        <span class="keyword">if</span>(node==<span class="keyword">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        updateMap(node, <span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> node.val;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(capacity==<span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        Node node = nodeMap.get(key);</span><br><span class="line">        <span class="keyword">if</span>(node!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            node.val=value;</span><br><span class="line">            updateMap(node, <span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        node=<span class="keyword">new</span> Node(key, value);</span><br><span class="line">        <span class="keyword">if</span>(nodeMap.size()==capacity)&#123;</span><br><span class="line">            List minList=freqMap.get(min);</span><br><span class="line">            nodeMap.remove(minList.removeLast().key);</span><br><span class="line">            <span class="keyword">if</span>(minList.size==<span class="number">0</span>) freqMap.remove(min);</span><br><span class="line">        &#125;</span><br><span class="line">        nodeMap.put(key, node);</span><br><span class="line">        updateMap(node, <span class="keyword">false</span>);</span><br><span class="line">        min=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updateMap</span><span class="params">(Node node, <span class="keyword">boolean</span> exist)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(exist)&#123;</span><br><span class="line">            List oldList = freqMap.get(node.freq);</span><br><span class="line">            oldList.remove(node);</span><br><span class="line">            <span class="keyword">if</span>(oldList.size==<span class="number">0</span> &amp;&amp; min==node.freq)&#123;</span><br><span class="line">                min++;</span><br><span class="line">            &#125;</span><br><span class="line">            node.freq++;</span><br><span class="line">        &#125;</span><br><span class="line">        List newList = freqMap.computeIfAbsent(node.freq, k -&gt; <span class="keyword">new</span> List());</span><br><span class="line">        newList.addFirst(node);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> key, val;</span><br><span class="line">        <span class="keyword">private</span> Node prev, next;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> freq;</span><br><span class="line">        Node(<span class="keyword">int</span> key, <span class="keyword">int</span> val)&#123;</span><br><span class="line">            <span class="keyword">this</span>.key=key;</span><br><span class="line">            <span class="keyword">this</span>.val=val;</span><br><span class="line">            freq=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">List</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Node head, tail;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line">        </span><br><span class="line">        List()&#123;</span><br><span class="line">            head=<span class="keyword">new</span> Node(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">            tail=<span class="keyword">new</span> Node(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">            head.next=tail;</span><br><span class="line">            tail.prev=head;</span><br><span class="line">            <span class="comment">//size干嘛的</span></span><br><span class="line">            size=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">            Node first=head.next;</span><br><span class="line">            head.next=node;</span><br><span class="line">            node.prev=head;</span><br><span class="line">            node.next=first;</span><br><span class="line">            first.prev=node;</span><br><span class="line">            size++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">private</span> Node <span class="title">remove</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">            node.prev.next=node.next;</span><br><span class="line">            node.next.prev=node.prev;</span><br><span class="line">            size--;</span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">private</span> Node <span class="title">removeLast</span><span class="params">()</span></span>&#123;</span><br><span class="line">            Node last=tail.prev;</span><br><span class="line">            <span class="keyword">return</span> remove(last);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your LFUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * LFUCache obj = new LFUCache(capacity);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj.get(key);</span></span><br><span class="line"><span class="comment"> * obj.put(key,value);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC259-3Sum-Smaller/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -929,95 +1013,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC990-Satisfiability-of-Equality-Equations/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengwei Zhang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="alfwz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/LC990-Satisfiability-of-Equality-Equations/" class="post-title-link" itemprop="url">LC990 Satisfiability of Equality Equations</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 09-02-2020 16:19:01" itemprop="dateCreated datePublished" datetime="2020-09-02T16:19:01-04:00">09-02-2020</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/Union-Find/" itemprop="url" rel="index"><span itemprop="name">Union Find</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/LC990-Satisfiability-of-Equality-Equations/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC990-Satisfiability-of-Equality-Equations/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equationsPossible</span><span class="params">(String[] equations)</span> </span>&#123;</span><br><span class="line">        UF uf=<span class="keyword">new</span> UF(<span class="number">26</span>);</span><br><span class="line">        <span class="keyword">for</span>(String e:equations)&#123;</span><br><span class="line">            <span class="keyword">if</span>(e.charAt(<span class="number">1</span>)==<span class="string">'='</span>)&#123;</span><br><span class="line">                uf.union(e.charAt(<span class="number">0</span>)-<span class="string">'a'</span>, e.charAt(<span class="number">3</span>)-<span class="string">'a'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(String e:equations)&#123;</span><br><span class="line">            <span class="keyword">if</span>(e.charAt(<span class="number">1</span>)==<span class="string">'!'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(uf.find(e.charAt(<span class="number">0</span>)-<span class="string">'a'</span>)==uf.find(e.charAt(<span class="number">3</span>)-<span class="string">'a'</span>))&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">UF</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span>[] parent;</span><br><span class="line">        </span><br><span class="line">        UF(<span class="keyword">int</span> n)&#123;</span><br><span class="line">            parent=<span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">                parent[i]=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span></span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(p!=parent[p])&#123;</span><br><span class="line">                p=parent[p];</span><br><span class="line">                parent[p]=parent[parent[p]];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> p;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span></span>&#123;</span><br><span class="line">            <span class="keyword">int</span> rootp=find(p);</span><br><span class="line">            <span class="keyword">int</span> rootq=find(q);</span><br><span class="line">            <span class="keyword">if</span>(rootp==rootq) <span class="keyword">return</span>;</span><br><span class="line">            parent[rootq]=rootp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
