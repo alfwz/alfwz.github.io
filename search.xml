@@ -513,6 +513,7 @@
 <h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1>]]></content>
       <categories>
         <category>Leetcode</category>
+        <category>Two Pointers &amp; Sliding Window</category>
       </categories>
   </entry>
   <entry>
@@ -2054,9 +2055,10 @@
   <entry>
     <title>LC496 Next Greater Element I</title>
     <url>/2020/LC496-Next-Greater-Element-I-1/</url>
-    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1>]]></content>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] nextGreaterElement(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Deque&lt;Integer&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> res[] = <span class="keyword">new</span> <span class="keyword">int</span>[nums1.length];</span><br><span class="line">        <span class="comment">//把之前的数放stack 如果下个数比stack里这个大 就poll出原来的放在map key</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num: nums2)&#123; </span><br><span class="line">            <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; num&gt;stack.peekFirst())&#123;</span><br><span class="line">                map.put(stack.pollFirst(), num);</span><br><span class="line">            &#125;</span><br><span class="line">            stack.offerFirst(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums1.length; i++)&#123;</span><br><span class="line">            res[i]=map.getOrDefault(nums1[i], -<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Leetcode</category>
+        <category>Stack</category>
       </categories>
   </entry>
   <entry>
@@ -2165,6 +2167,15 @@
       <categories>
         <category>Leetcode</category>
         <category>BT &amp; BST</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>LC239 Sliding Window Maximum</title>
+    <url>/2020/LC239-Sliding-Window-Maximum/</url>
+    <content><![CDATA[<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">// public int[] maxSlidingWindow(int[] nums, int k) &#123;</span></span><br><span class="line">    <span class="comment">//     //不等的话按照值排序 等的话按照index排序</span></span><br><span class="line">    <span class="comment">//     TreeSet&lt;Integer&gt; maxSet = new TreeSet&lt;&gt;((i,j) -&gt; nums[i]!=nums[j] ? nums[j]-nums[i]:i-j);</span></span><br><span class="line">    <span class="comment">//     int[] res = new int[nums.length-k+1];</span></span><br><span class="line">    <span class="comment">//     for(int i=0; i&lt;nums.length; i++)&#123;</span></span><br><span class="line">    <span class="comment">//         maxSet.add(i);</span></span><br><span class="line">    <span class="comment">//         if(i&gt;=k-1)&#123;</span></span><br><span class="line">    <span class="comment">//             res[i-k+1]=nums[maxSet.first()];</span></span><br><span class="line">    <span class="comment">//             maxSet.remove(i-k+1);</span></span><br><span class="line">    <span class="comment">//         &#125;</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">//     return res;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        Deque&lt;Integer&gt; deque = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length-k+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(!deque.isEmpty() &amp;&amp; nums[i]&gt;deque.peekLast())&#123;</span><br><span class="line">                deque.pollLast();</span><br><span class="line">            &#125;</span><br><span class="line">            deque.offerLast(nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(i&gt;=k-<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">//单调递减栈</span></span><br><span class="line">                res[i-k+<span class="number">1</span>]=deque.peekFirst();</span><br><span class="line">                <span class="keyword">if</span>(nums[i-k+<span class="number">1</span>] == deque.peekFirst()) deque.pollFirst();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>Two Pointers &amp; Sliding Window</category>
       </categories>
   </entry>
 </search>

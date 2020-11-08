@@ -16,19 +16,19 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"default"},"back2top":{"enable":false,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="DescriptionSolution123456789101112131415161718class Solution &amp;#123;    public int[] nextGreaterElement(int[] nums1, int[] nums2) &amp;#123;        Map&lt;Integer, Integer&gt; map &#x3D; new HashMap&lt;&gt;();">
+  <meta name="description" content="DescriptionSolution1234567891011121314151617181920212223242526272829303132class Solution &amp;#123;    &#x2F;&#x2F; public int[] maxSlidingWindow(int[] nums, int k) &amp;#123;    &#x2F;&#x2F;     &#x2F;&#x2F;不等的话按照值排序 等的话按照index排序    &#x2F;&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC496 Next Greater Element I">
-<meta property="og:url" content="http://yoursite.com/2020/LC496-Next-Greater-Element-I-1/index.html">
+<meta property="og:title" content="LC239 Sliding Window Maximum">
+<meta property="og:url" content="http://yoursite.com/2020/LC239-Sliding-Window-Maximum/index.html">
 <meta property="og:site_name" content="alfwz">
-<meta property="og:description" content="DescriptionSolution123456789101112131415161718class Solution &amp;#123;    public int[] nextGreaterElement(int[] nums1, int[] nums2) &amp;#123;        Map&lt;Integer, Integer&gt; map &#x3D; new HashMap&lt;&gt;();">
+<meta property="og:description" content="DescriptionSolution1234567891011121314151617181920212223242526272829303132class Solution &amp;#123;    &#x2F;&#x2F; public int[] maxSlidingWindow(int[] nums, int k) &amp;#123;    &#x2F;&#x2F;     &#x2F;&#x2F;不等的话按照值排序 等的话按照index排序    &#x2F;&#x2F;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-28T03:32:22.000Z">
-<meta property="article:modified_time" content="2020-11-08T16:57:01.672Z">
+<meta property="article:published_time" content="2020-11-08T16:54:38.000Z">
+<meta property="article:modified_time" content="2020-11-08T16:57:12.653Z">
 <meta property="article:author" content="Fengwei Zhang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/LC496-Next-Greater-Element-I-1/">
+<link rel="canonical" href="http://yoursite.com/2020/LC239-Sliding-Window-Maximum/">
 
 
 <script id="page-configurations">
@@ -41,7 +41,7 @@
   };
 </script>
 
-  <title>LC496 Next Greater Element I | alfwz</title>
+  <title>LC239 Sliding Window Maximum | alfwz</title>
   
 
 
@@ -175,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC496-Next-Greater-Element-I-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC239-Sliding-Window-Maximum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -188,7 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC496 Next Greater Element I
+          LC239 Sliding Window Maximum
         </h1>
 
         <div class="post-meta">
@@ -198,7 +198,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 09-27-2020 23:32:22" itemprop="dateCreated datePublished" datetime="2020-09-27T23:32:22-04:00">09-27-2020</time>
+              <time title="Created: 11-08-2020 11:54:38" itemprop="dateCreated datePublished" datetime="2020-11-08T11:54:38-05:00">11-08-2020</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -210,7 +210,7 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/Stack/" itemprop="url" rel="index"><span itemprop="name">Stack</span></a>
+                  <a href="/categories/Leetcode/Two-Pointers-Sliding-Window/" itemprop="url" rel="index"><span itemprop="name">Two Pointers & Sliding Window</span></a>
                 </span>
             </span>
 
@@ -223,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/LC496-Next-Greater-Element-I-1/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC496-Next-Greater-Element-I-1/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2020/LC239-Sliding-Window-Maximum/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC239-Sliding-Window-Maximum/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -239,7 +239,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] nextGreaterElement(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Deque&lt;Integer&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> res[] = <span class="keyword">new</span> <span class="keyword">int</span>[nums1.length];</span><br><span class="line">        <span class="comment">//把之前的数放stack 如果下个数比stack里这个大 就poll出原来的放在map key</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num: nums2)&#123; </span><br><span class="line">            <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; num&gt;stack.peekFirst())&#123;</span><br><span class="line">                map.put(stack.pollFirst(), num);</span><br><span class="line">            &#125;</span><br><span class="line">            stack.offerFirst(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums1.length; i++)&#123;</span><br><span class="line">            res[i]=map.getOrDefault(nums1[i], -<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">// public int[] maxSlidingWindow(int[] nums, int k) &#123;</span></span><br><span class="line">    <span class="comment">//     //不等的话按照值排序 等的话按照index排序</span></span><br><span class="line">    <span class="comment">//     TreeSet&lt;Integer&gt; maxSet = new TreeSet&lt;&gt;((i,j) -&gt; nums[i]!=nums[j] ? nums[j]-nums[i]:i-j);</span></span><br><span class="line">    <span class="comment">//     int[] res = new int[nums.length-k+1];</span></span><br><span class="line">    <span class="comment">//     for(int i=0; i&lt;nums.length; i++)&#123;</span></span><br><span class="line">    <span class="comment">//         maxSet.add(i);</span></span><br><span class="line">    <span class="comment">//         if(i&gt;=k-1)&#123;</span></span><br><span class="line">    <span class="comment">//             res[i-k+1]=nums[maxSet.first()];</span></span><br><span class="line">    <span class="comment">//             maxSet.remove(i-k+1);</span></span><br><span class="line">    <span class="comment">//         &#125;</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">//     return res;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        Deque&lt;Integer&gt; deque = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length-k+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(!deque.isEmpty() &amp;&amp; nums[i]&gt;deque.peekLast())&#123;</span><br><span class="line">                deque.pollLast();</span><br><span class="line">            &#125;</span><br><span class="line">            deque.offerLast(nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(i&gt;=k-<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">//单调递减栈</span></span><br><span class="line">                res[i-k+<span class="number">1</span>]=deque.peekFirst();</span><br><span class="line">                <span class="keyword">if</span>(nums[i-k+<span class="number">1</span>] == deque.peekFirst()) deque.pollFirst();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -254,13 +254,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/LC628-Maximum-Product-of-Three-Numbers/" rel="prev" title="LC628 Maximum Product of Three Numbers">
-      <i class="fa fa-chevron-left"></i> LC628 Maximum Product of Three Numbers
+    <a href="/2020/LC889-Construct-Binary-Tree-from-Preorder-and-Postorder-Traversal/" rel="prev" title="LC889 Construct Binary Tree from Preorder and Postorder Traversal">
+      <i class="fa fa-chevron-left"></i> LC889 Construct Binary Tree from Preorder and Postorder Traversal
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/LC002-Add-Two-Numbers/" rel="next" title="LC002 Add Two Numbers">
-      LC002 Add Two Numbers <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -447,9 +444,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2020/LC496-Next-Greater-Element-I-1/";
-    this.page.identifier = "2020/LC496-Next-Greater-Element-I-1/";
-    this.page.title = "LC496 Next Greater Element I";
+    this.page.url = "http://yoursite.com/2020/LC239-Sliding-Window-Maximum/";
+    this.page.identifier = "2020/LC239-Sliding-Window-Maximum/";
+    this.page.title = "LC239 Sliding Window Maximum";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

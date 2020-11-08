@@ -170,6 +170,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC239-Sliding-Window-Maximum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Fengwei Zhang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="alfwz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/LC239-Sliding-Window-Maximum/" class="post-title-link" itemprop="url">LC239 Sliding Window Maximum</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 11-08-2020 11:54:38" itemprop="dateCreated datePublished" datetime="2020-11-08T11:54:38-05:00">11-08-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/Two-Pointers-Sliding-Window/" itemprop="url" rel="index"><span itemprop="name">Two Pointers & Sliding Window</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/LC239-Sliding-Window-Maximum/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC239-Sliding-Window-Maximum/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">// public int[] maxSlidingWindow(int[] nums, int k) &#123;</span></span><br><span class="line">    <span class="comment">//     //不等的话按照值排序 等的话按照index排序</span></span><br><span class="line">    <span class="comment">//     TreeSet&lt;Integer&gt; maxSet = new TreeSet&lt;&gt;((i,j) -&gt; nums[i]!=nums[j] ? nums[j]-nums[i]:i-j);</span></span><br><span class="line">    <span class="comment">//     int[] res = new int[nums.length-k+1];</span></span><br><span class="line">    <span class="comment">//     for(int i=0; i&lt;nums.length; i++)&#123;</span></span><br><span class="line">    <span class="comment">//         maxSet.add(i);</span></span><br><span class="line">    <span class="comment">//         if(i&gt;=k-1)&#123;</span></span><br><span class="line">    <span class="comment">//             res[i-k+1]=nums[maxSet.first()];</span></span><br><span class="line">    <span class="comment">//             maxSet.remove(i-k+1);</span></span><br><span class="line">    <span class="comment">//         &#125;</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">//     return res;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        Deque&lt;Integer&gt; deque = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length-k+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(!deque.isEmpty() &amp;&amp; nums[i]&gt;deque.peekLast())&#123;</span><br><span class="line">                deque.pollLast();</span><br><span class="line">            &#125;</span><br><span class="line">            deque.offerLast(nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(i&gt;=k-<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">//单调递减栈</span></span><br><span class="line">                res[i-k+<span class="number">1</span>]=deque.peekFirst();</span><br><span class="line">                <span class="keyword">if</span>(nums[i-k+<span class="number">1</span>] == deque.peekFirst()) deque.pollFirst();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC889-Construct-Binary-Tree-from-Preorder-and-Postorder-Traversal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -905,90 +989,6 @@
 
       
           <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> max=-<span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">goodNodes</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        max=root.val;</span><br><span class="line">        helper(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> temp=max;</span><br><span class="line">        <span class="keyword">if</span>(root.val&gt;=max)&#123;</span><br><span class="line">            max=root.val;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">        helper(root.left);</span><br><span class="line">        helper(root.right);</span><br><span class="line">        max=temp;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC002-Add-Two-Numbers/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Fengwei Zhang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="alfwz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/LC002-Add-Two-Numbers/" class="post-title-link" itemprop="url">LC002 Add Two Numbers</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 10-10-2020 17:45:56" itemprop="dateCreated datePublished" datetime="2020-10-10T17:45:56-04:00">10-10-2020</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/Two-Pointers-Sliding-Window/" itemprop="url" rel="index"><span itemprop="name">Two Pointers & Sliding Window</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/LC002-Add-Two-Numbers/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/LC002-Add-Two-Numbers/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode dummy=<span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        ListNode cur=dummy;</span><br><span class="line">        <span class="keyword">int</span> carry=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//caryy!=0 可以放这里</span></span><br><span class="line">        <span class="keyword">while</span>(l1!=<span class="keyword">null</span> || l2!=<span class="keyword">null</span> || carry!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> val1= l1==<span class="keyword">null</span>? <span class="number">0</span>:l1.val;</span><br><span class="line">            <span class="keyword">int</span> val2= l2==<span class="keyword">null</span>? <span class="number">0</span>:l2.val;</span><br><span class="line">            <span class="keyword">int</span> sum=val1+val2+carry;</span><br><span class="line">            carry=sum/<span class="number">10</span>;</span><br><span class="line">            cur.next=<span class="keyword">new</span> ListNode(sum%<span class="number">10</span>);</span><br><span class="line">            cur=cur.next;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(l1!=<span class="keyword">null</span>) l1=l1.next;</span><br><span class="line">            <span class="keyword">if</span>(l2!=<span class="keyword">null</span>) l2=l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
