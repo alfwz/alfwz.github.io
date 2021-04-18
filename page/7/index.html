@@ -13,18 +13,18 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"default"},"back2top":{"enable":false,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"alfwzhang.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"default"},"back2top":{"enable":false,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="alfwz">
-<meta property="og:url" content="http://yoursite.com/page/7/index.html">
+<meta property="og:url" content="http://alfwzhang.com/page/7/index.html">
 <meta property="og:site_name" content="alfwz">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Fengwei Zhang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/page/7/">
+<link rel="canonical" href="http://alfwzhang.com/page/7/">
 
 
 <script id="page-configurations">
@@ -39,21 +39,14 @@
 
   <title>alfwz</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-194905281-1"></script>
     <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-194905281-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-194905281-1');
       }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
     </script>
 
 
@@ -186,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC067-Add-Binary/">
+    <link itemprop="mainEntityOfPage" href="http://alfwzhang.com/2020/LC067-Add-Binary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -271,7 +264,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC066-Plus-One/">
+    <link itemprop="mainEntityOfPage" href="http://alfwzhang.com/2020/LC066-Plus-One/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -356,7 +349,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC043-Multiply-Strings/">
+    <link itemprop="mainEntityOfPage" href="http://alfwzhang.com/2020/LC043-Multiply-Strings/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -441,7 +434,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC912-Sort-an-Array/">
+    <link itemprop="mainEntityOfPage" href="http://alfwzhang.com/2020/LC912-Sort-an-Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -528,7 +521,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC1438-Longest-Continuous-Subarray-With-Absolute-Diff-Less-Than-or-Equal-to-Limit/">
+    <link itemprop="mainEntityOfPage" href="http://alfwzhang.com/2020/LC1438-Longest-Continuous-Subarray-With-Absolute-Diff-Less-Than-or-Equal-to-Limit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -612,7 +605,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC287-Find-the-Duplicate-Number/">
+    <link itemprop="mainEntityOfPage" href="http://alfwzhang.com/2020/LC287-Find-the-Duplicate-Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -697,7 +690,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC1060-Missing-Element-in-Sorted-Array/">
+    <link itemprop="mainEntityOfPage" href="http://alfwzhang.com/2020/LC1060-Missing-Element-in-Sorted-Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -782,7 +775,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC658-Find-K-Closest-Elements/">
+    <link itemprop="mainEntityOfPage" href="http://alfwzhang.com/2020/LC658-Find-K-Closest-Elements/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -867,7 +860,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC475-Heaters/">
+    <link itemprop="mainEntityOfPage" href="http://alfwzhang.com/2020/LC475-Heaters/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -952,7 +945,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/LC278-First-Bad-Version/">
+    <link itemprop="mainEntityOfPage" href="http://alfwzhang.com/2020/LC278-First-Bad-Version/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
